@@ -29,6 +29,7 @@ router.post('/', [
     check('email', 'Enter a valid email').isEmail(),
     check('password', 'Passowrd is required').exists(),
 ], async (req, res) => {
+    // executes the validation process
     const errors = validationResult(req);
     if(!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() });
@@ -38,8 +39,8 @@ router.post('/', [
 
     try {
         // check if user exists
-        let user = await user.findOne({ email }); // email: email
-        if(user){ return res.status(400).json({ error: [{ msg: 'Invalid email/password' }] }) };
+        let user = await User.findOne({ email }); // email: email
+        if(!user){ return res.status(400).json({ error: [{ msg: 'Invalid email' }] }) };
 
         // verify the user
         const isMatch = await bcrypt.compare(password, user.password); // password is what user entered, user.password is in the db
@@ -58,6 +59,7 @@ router.post('/', [
             if(err) throw err;
             res.json({ token });
         });
+        
     } catch (error) {
         console.error(error.message);
         res.status(500).send("Server error");

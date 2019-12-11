@@ -12,42 +12,35 @@ const User = require("../../models/User");
 // @desc    Register user
 // @access  Public
 router.post('/', [
-    // validate the user registration form
-    check('firstName', 'First Name is Required').not().isEmpty(),
-    check('lastName', 'Last Name is Required').not().isEmpty(),
-    check('address', 'Addresss No. is Required').not().isEmpty(),
-    check('street', 'Address Street is Required').not().isEmpty(),
-    check('city', 'Addresss City is Required').not().isEmpty(),
-    check('postalCode', 'Postal Code is Required').not().isEmpty(),
-    check('region', 'Region is Required').not().isEmpty(),
+    // validate the user registration form inputs
+    check('username', 'First Name is Required').not().isEmpty(),
     check('email', 'Enter a valid email').isEmail(),
     check('password', 'Please enter a password with 8 or more characters').isLength({ min: 8 }),
 ], async (req, res) => {
+
+    // execute the validation process
     const errors = validationResult(req);
     if(!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() });
     }
 
-    const { firstName, lastName, gender, phone, address, street, city, postalCode, region, email, password } = req.body;
+    const { username, email, password } = req.body;
 
     try {
-        // check if user exists
+        // check if user exists with same email
         let user = await User.findOne({ email }); // email: email
-        if(user){ return res.status(400).json({ error: [{ msg: 'User already exist' }] }) };
+        if(user){ return res.status(400).json({ error: [{ msg: 'A user already registered with the same Email' }] }) };
+
+        // check if user exists with same username
+        user = await User.findOne({ username });
+        if(user){ return res.status(400).json({ error: [{ msg: 'Username has already taken' }] }) };
 
         // get users gravatar
         const avatar = gravatar.url(email, { s: '200', r: 'pg', d: 'mm'});
+
         user = new User({
             avatar,
-            firstName,
-            lastName,
-            gender,
-            phone,
-            address,
-            street,
-            city,
-            postalCode,
-            region,
+            username,
             email,
             password
         });
@@ -69,6 +62,7 @@ router.post('/', [
             if(err) throw err;
             res.json({ token });
         });
+        
     } catch (error) {
         console.error(error.message);
         res.status(500).send("Server error");

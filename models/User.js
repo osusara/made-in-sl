@@ -4,39 +4,10 @@ const UserSchema = new mongoose.Schema({
   avatar: {
     type: String,
   },
-  firstName: {
+  username: {
     type: String,
-    required: true
-  },
-  lastName: {
-    type: String,
-    required: true
-  },
-  gender: {
-    type: String
-  },
-  phone: {
-    type: String
-  },
-  address: {
-    type: String,
-    required: true
-  },
-  street: {
-    type: String,
-    required: true
-  },
-  city: {
-    type: String,
-    required: true
-  },
-  postalCode: {
-    type: String,
-    required: true
-  },
-  region: {
-    type: String,
-    required: true
+    required: true,
+    unique: true
   },
   email: {
     type: String,
