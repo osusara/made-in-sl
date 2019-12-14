@@ -6,14 +6,14 @@ const jwt = require("jsonwebtoken");
 const config = require("config");
 const { check, validationResult } = require("express-validator");
 
-const User = require("../../models/User");
+const Buyer = require("../../models/Buyer");
 
-// @route   POST api/users
-// @desc    Register user
+// @route   POST api/buyers
+// @desc    Register buyer
 // @access  Public
 router.post('/', [
-    // validate the user registration form inputs
-    check('username', 'First Name is Required').not().isEmpty(),
+    // validate the buyer registration form inputs
+    check('username', 'Username is Required').not().isEmpty(),
     check('email', 'Enter a valid email').isEmail(),
     check('password', 'Please enter a password with 8 or more characters').isLength({ min: 8 }),
 ], async (req, res) => {
@@ -27,18 +27,18 @@ router.post('/', [
     const { username, email, password } = req.body;
 
     try {
-        // check if user exists with same email
-        let user = await User.findOne({ email }); // email: email
-        if(user){ return res.status(400).json({ error: [{ msg: 'A user already registered with the same Email' }] }) };
+        // check if buyer exists with same email
+        let buyer = await Buyer.findOne({ email }); // email: email
+        if(buyer){ return res.status(400).json({ error: [{ msg: 'A user already registered with the same Email' }] }) };
 
-        // check if user exists with same username
-        user = await User.findOne({ username });
-        if(user){ return res.status(400).json({ error: [{ msg: 'Username has already taken' }] }) };
+        // check if buyer exists with same username
+        buyer = await Buyer.findOne({ username });
+        if(buyer){ return res.status(400).json({ error: [{ msg: 'Username has already taken' }] }) };
 
-        // get users gravatar
+        // get buyers gravatar
         const avatar = gravatar.url(email, { s: '200', r: 'pg', d: 'mm'});
 
-        user = new User({
+        buyer = new Buyer({
             avatar,
             username,
             email,
@@ -47,14 +47,14 @@ router.post('/', [
 
         //encrypt password
         const salt = await bcrypt.genSalt(10); // 10 is recommended
-        user.password = await bcrypt.hash(password, salt);
+        buyer.password = await bcrypt.hash(password, salt);
 
-        await user.save(); // save to mongodb
+        await buyer.save(); // save to mongodb
 
         // return jsonwebtoken
         const payload = {
-            user: {
-                id: user.id // mongoose turns _id into id
+            buyer: {
+                id: buyer.id // mongoose turns _id into id
             }
         }
 

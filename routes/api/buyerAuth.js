@@ -4,17 +4,17 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const config = require("config");
 const { check, validationResult } = require("express-validator");
-const auth = require("../../middleware/auth");
+const auth = require("../../middleware/buyerAuth");
 
-const User = require("../../models/User");
+const Buyer = require("../../models/Buyer");
 
 // @route   GET api/auth
 // @desc    Test route
 // @access  Public
 router.get("/", auth, async (req, res) => {
     try {
-        const user = await User.findById(req.user.id).select("-password"); // drop the password
-        res.json(user);
+        const buyer = await Buyer.findById(req.buyer.id).select("-password"); // drop the password
+        res.json(buyer);
     } catch (error) {
         console.error(error.message);
         res.status(500).send("Server error");
@@ -22,10 +22,10 @@ router.get("/", auth, async (req, res) => {
 });
 
 // @route   POST api/auth
-// @desc    Authenticate user and get token
+// @desc    Authenticate buyer and get token (login)
 // @access  Public
 router.post('/', [
-    // validate the user registration form
+    // validate the buyer registration form
     check('email', 'Enter a valid email').isEmail(),
     check('password', 'Passowrd is required').exists(),
 ], async (req, res) => {
@@ -38,20 +38,20 @@ router.post('/', [
     const { email, password } = req.body;
 
     try {
-        // check if user exists
-        let user = await User.findOne({ email }); // email: email
-        if(!user){ return res.status(400).json({ error: [{ msg: 'Invalid email' }] }) };
+        // check if buyer exists
+        let buyer = await Buyer.findOne({ email }); // email: email
+        if(!buyer){ return res.status(400).json({ error: [{ msg: 'Invalid email' }] }) };
 
-        // verify the user
-        const isMatch = await bcrypt.compare(password, user.password); // password is what user entered, user.password is in the db
+        // verify the buyer
+        const isMatch = await bcrypt.compare(password, buyer.password); // password is what buyer entered, buyer.password is in the db
         if(!isMatch) {
             return res.status(400).json({ errors: [{ msg: 'Invalid email/password' }] });
         }
 
         // return jsonwebtoken
         const payload = {
-            user: {
-                id: user.id // mongoose turns _id into id
+            buyer: {
+                id: buyer.id // mongoose turns _id into id
             }
         }
 

@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const UserSchema = new mongoose.Schema({
+const BuyerSchema = new mongoose.Schema({
   avatar: {
     type: String,
   },
@@ -21,16 +21,8 @@ const UserSchema = new mongoose.Schema({
   date: {
     type: Date,
     default: Date.now
-  },
-  isActive: {
-    type: Boolean,
-    default: true
-  },
-  isSeller: {
-    type: Boolean,
-    default: false
   }
 });
 
-const User = mongoose.model("user", UserSchema);
-module.exports = User;
+const Buyer = mongoose.model("buyer", BuyerSchema);
+module.exports = Buyer;

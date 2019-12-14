@@ -11,9 +11,9 @@ app.use(express.json({ extended: false }));
 connectDB();
 
 // define routes
-app.use("/api/users", require("./routes/api/users"));
-app.use("/api/auth", require("./routes/api/auth"));
-app.use("/api/profile", require("./routes/api/profile"));
+app.use("/api/buyerAuth", require("./routes/api/buyerAuth"));
+app.use("/api/buyers", require("./routes/api/buyers"));
+app.use("/api/buyerProfile", require("./routes/api/buyerProfile"));
 
 // start the server
 const PORT = process.env.PORT || 3000;

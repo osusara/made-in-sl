@@ -14,7 +14,7 @@ module.exports = function(req, res, next) {
   try {
     const decoded = jwt.verify(token, config.get("jwtPrivateKey"));
 
-    req.user = decoded.user; // get the user from decoded token
+    req.buyer = decoded.buyer; // get the user from decoded token
     next(); // next middleware or action
   } catch (error) {
     res.status(401).json({ msg: "Token is not valid" });
