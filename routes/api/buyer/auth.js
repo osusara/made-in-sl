@@ -4,28 +4,28 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const config = require("config");
 const { check, validationResult } = require("express-validator");
-const auth = require("../../middleware/buyerAuth");
+const auth = require("../../../middleware/auth");
 
-const Buyer = require("../../models/Buyer");
+const User = require("../../../models/buyer/User");
 
-// @route   GET api/auth
+// @route   GET api/buyer/auth
 // @desc    Test route
 // @access  Public
 router.get("/", auth, async (req, res) => {
     try {
-        const buyer = await Buyer.findById(req.buyer.id).select("-password"); // drop the password
-        res.json(buyer);
+        const user = await User.findById(req.user.id).select("-password"); // drop the password
+        res.json(user);
     } catch (error) {
         console.error(error.message);
         res.status(500).send("Server error");
     }
 });
 
-// @route   POST api/auth
-// @desc    Authenticate buyer and get token (login)
+// @route   POST api/buyer/auth
+// @desc    Authenticate user and get token (login)
 // @access  Public
 router.post('/', [
-    // validate the buyer registration form
+    // validate the user registration form
     check('email', 'Enter a valid email').isEmail(),
     check('password', 'Passowrd is required').exists(),
 ], async (req, res) => {
@@ -38,20 +38,20 @@ router.post('/', [
     const { email, password } = req.body;
 
     try {
-        // check if buyer exists
-        let buyer = await Buyer.findOne({ email }); // email: email
-        if(!buyer){ return res.status(400).json({ error: [{ msg: 'Invalid email' }] }) };
+        // check if user exists
+        let user = await User.findOne({ email }); // email: email
+        if(!user){ return res.status(400).json({ error: [{ msg: 'Invalid email' }] }) };
 
-        // verify the buyer
-        const isMatch = await bcrypt.compare(password, buyer.password); // password is what buyer entered, buyer.password is in the db
+        // verify the user
+        const isMatch = await bcrypt.compare(password, user.password); // password is what user entered, user.password is in the db
         if(!isMatch) {
             return res.status(400).json({ errors: [{ msg: 'Invalid email/password' }] });
         }
 
         // return jsonwebtoken
         const payload = {
-            buyer: {
-                id: buyer.id // mongoose turns _id into id
+            user: {
+                id: user.id // mongoose turns _id into id
             }
         }
 

@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const BuyerSchema = new mongoose.Schema({
+const UserSchema = new mongoose.Schema({
   avatar: {
     type: String,
   },
@@ -24,5 +24,5 @@ const BuyerSchema = new mongoose.Schema({
   }
 });
 
-const Buyer = mongoose.model("buyer", BuyerSchema);
-module.exports = Buyer;
+const User = mongoose.model("buyer", UserSchema);
+module.exports = User;

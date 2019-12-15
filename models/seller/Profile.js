@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 
-const BuyerSchema = new mongoose.Schema({
+const ProfileSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "user"
   },
-  name: {
+  company: {
     type: String,
     required: true
   },
@@ -23,4 +23,4 @@ const BuyerSchema = new mongoose.Schema({
   }
 });
 
-module.exports = Buyer = mongoose.model("buyer", BuyerSchema);
+module.exports = Profile = mongoose.model("sellerProfile", ProfileSchema);
