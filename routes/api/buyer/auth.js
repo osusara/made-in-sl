@@ -51,7 +51,8 @@ router.post('/', [
         // return jsonwebtoken
         const payload = {
             user: {
-                id: user.id // mongoose turns _id into id
+                id: user.id, // mongoose turns _id into id
+                isSeller: user.isSeller
             }
         }
 

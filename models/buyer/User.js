@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const UserSchema = new mongoose.Schema({
   avatar: {
-    type: String,
+    type: String
   },
   username: {
     type: String,
@@ -21,6 +21,10 @@ const UserSchema = new mongoose.Schema({
   date: {
     type: Date,
     default: Date.now
+  },
+  isSeller: {
+    type: Boolean,
+    default: false
   }
 });
 
