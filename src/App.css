@@ -1,4 +1,4 @@
-body {
+body, html {
   height: 100%;
 }
 
@@ -6,10 +6,34 @@ body {
   box-sizing: border-box;
 }
 
+/* page common=====================================================*/
+
+.hero-title {
+  font-weight: 900;
+  font-size: 3rem;
+  color: #b63a46;
+  position: absolute;
+  width: 80%;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.hero-text {
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: #000000;
+  position: absolute;
+}
+
 .btn-custom {
   background-image: linear-gradient(45deg, #a73a5e 0%, #c43a30 100%);
   border-style: none !important;
 }
+
+/*Navbar ========================================*/
 
 .navbar-container {
   background-image: linear-gradient(to right, #d5d4d0b0 0%, #d5d4d0b0 1%, #eeeeecab 31%, #efeeecab 75%, #e9e9e7a8 100%);
@@ -24,41 +48,45 @@ body {
   border-style: none;
 }
 
-/*Login page====================================================*/
+/*Login & registration page====================================================*/
+
+.register-foreground {
+  background-image: url("./assets/images/7.jpg");
+}
 
 .login-foreground {
   background-image: url("./assets/images/4.jpg");
+}
+
+.user-foreground {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
 
+.register-background {
+  background-image: url("./assets/images/7-background.jpg");
+}
+
 .login-background {
-  background-image: url("./assets/images/4-blured.jpg");
+  background-image: url("./assets/images/4-background.jpg");
+}
+
+.user-background {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   height: 100%;
 }
 
-.login-text {
-  font-weight: 900;
-  font-size: 8rem;
-  color: #b63a46;
-  position: absolute;
-  left: 50%;
-  top: 48%;
-  transform: translate(-50%, -50%);
-}
-
-.login-card {
+.user-card {
   position: absolute;
   left: 50%;
   top: 45%;
   transform: translate(-50%, -50%);
 }
 
-.login-card .card {
+.user-card .card {
   padding: 1rem 0;
   border-radius: 1rem;
   border-style: none;
@@ -80,7 +108,73 @@ body {
   border-style: none;
 }
 
+/* Tab responsive========================================================================*/
+
 @media only screen and (max-width: 800px) {
+  * {
+    box-sizing: border-box;
+  }
+  .user-background {
+    height: 100%;
+    padding: 0 0 0 0;
+  }
+  /*page common - Responsiveness==============================*/
+  .hero-title {
+    font-weight: 900;
+    font-size: 2.5rem;
+    text-align: center;
+    position: absolute;
+    width: 70%;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+    padding: 10% 0 10% 0;
+    margin: 0 0 0 0;
+  }
+  .hero-text {
+    font-weight: 500;
+    font-size: 1rem;
+    text-align: center;
+  }
+  /*Navbar - Responsiveness==============================*/
+  .search-input {
+    width: 76% !important;
+    margin-right: 5px;
+  }
+  .search-btn {
+    width: 20% !important;
+  }
+}
+
+/* Mobile responsive====================================================================*/
+
+@media only screen and (max-width: 540px) {
+  * {
+    box-sizing: border-box;
+    font-size: 0.8rem;
+  }
+  .user-background {
+    height: 100%;
+    padding: 40% 0 20% 0;
+  }
+  /*page common - Responsiveness==============================*/
+  .hero-title {
+    font-weight: 900;
+    font-size: 1.8rem;
+    text-align: center;
+    position: absolute;
+    width: 80%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0 0 50% 0;
+    margin: 0 0 0 0;
+  }
+  .hero-text {
+    font-weight: 200;
+    font-size: 1rem;
+    text-align: center;
+  }
   /*Navbar - Responsiveness==============================*/
   .search-input {
     width: 76% !important;

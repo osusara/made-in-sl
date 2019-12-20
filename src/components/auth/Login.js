@@ -19,13 +19,20 @@ const Login = () => {
 
   return (
     <Fragment>
-      <Container className="login-background" fluid={true}>
-        <Row style={{ height: "100%" }} className="login-page">
-          <Col md={6} sm={12}>
-            <h1 className="login-text">Lankan to the Last Drop</h1>
+      <Container className="login-background user-background" fluid={true}>
+        <Row style={{ height: "100%" }} className="user-page">
+          <Col lg={6} md={12} sm={12}>
+            <h1 className="hero-title">
+              Welcome to<br/>Made in Sri Lanka
+              <p className="hero-text">
+                Buy the finest products made in Sri Lanka for low price and in
+                best quality. Only on Made in Sri Lanka, the world's online
+                marketplace.
+              </p>
+            </h1>
           </Col>
-          <Col md={6} sm={12} className="login-foreground">
-            <Col md={8} sm={10} className="login-card">
+          <Col lg={6} md={12} sm={12} className="login-foreground user-foreground">
+            <Col md={8} sm={10} className="user-card">
               <Card className="my-5">
                 <Card.Body>
                   <Card.Title className="text-center my-2">
@@ -70,7 +77,10 @@ const Login = () => {
                       </Button>
                     </Form>
                     <p className="text-center my-1">
-                      Don't have an account? <Link style={{color: "#b63a46"}} to="/register">Sign Up</Link>
+                      Don't have an account?{" "}
+                      <Link style={{ color: "#b63a46" }} to="/register">
+                        Sign Up
+                      </Link>
                     </p>
                   </Card.Text>
                 </Card.Body>
