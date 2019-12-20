@@ -20,5 +20,5 @@ app.use("/api/seller/profile", require("./routes/api/seller/profile"));
 app.use("/api/products", require("./routes/api/product/products"));
 
 // start the server
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
