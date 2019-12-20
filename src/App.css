@@ -6,7 +6,7 @@ body, html {
   box-sizing: border-box;
 }
 
-/* page common=====================================================*/
+/* page common==================================================*/
 
 .hero-title {
   font-weight: 900;
@@ -33,7 +33,7 @@ body, html {
   border-style: none !important;
 }
 
-/*Navbar ========================================*/
+/*Navbar =====================================================*/
 
 .navbar-container {
   background-image: linear-gradient(to right, #d5d4d0b0 0%, #d5d4d0b0 1%, #eeeeecab 31%, #efeeecab 75%, #e9e9e7a8 100%);
@@ -48,7 +48,7 @@ body, html {
   border-style: none;
 }
 
-/*Login & registration page====================================================*/
+/*Login & registration page===================================*/
 
 .register-foreground {
   background-image: url("./assets/images/7.jpg");
@@ -118,7 +118,9 @@ body, html {
     height: 100%;
     padding: 0 0 0 0;
   }
-  /*page common - Responsiveness==============================*/
+
+  /*page common - Responsiveness================================*/
+
   .hero-title {
     font-weight: 900;
     font-size: 2.5rem;
@@ -136,7 +138,9 @@ body, html {
     font-size: 1rem;
     text-align: center;
   }
-  /*Navbar - Responsiveness==============================*/
+
+  /*Navbar - Responsiveness====================================*/
+
   .search-input {
     width: 76% !important;
     margin-right: 5px;
@@ -157,7 +161,9 @@ body, html {
     height: 100%;
     padding: 40% 0 20% 0;
   }
+
   /*page common - Responsiveness==============================*/
+
   .hero-title {
     font-weight: 900;
     font-size: 1.8rem;
@@ -175,7 +181,9 @@ body, html {
     font-size: 1rem;
     text-align: center;
   }
-  /*Navbar - Responsiveness==============================*/
+
+  /*Navbar - Responsiveness==================================*/
+
   .search-input {
     width: 76% !important;
     margin-right: 5px;
