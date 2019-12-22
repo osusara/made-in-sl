@@ -12,8 +12,6 @@ const NavBar = () => {
             <Form.Control size="sm" type="text" placeholder="Product Name" className="mr-sm-2 text-center search-input" />
             <Button variant="outline-secondary" size="sm" className="my-1 px-3 search-btn">Search</Button>
           </Form>
-          <Nav.Link href="/login" className="text-center">Login</Nav.Link>
-          <Nav.Link href="/register" className="text-center">Sign Up</Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
