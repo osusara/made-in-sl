@@ -71,7 +71,7 @@ const Login = () => {
                       </Form.Group>
                       <Button
                         type="submit"
-                        className="px-5 user-btn btn-custom"
+                        className="px-5 btn-custom-1"
                       >
                         Login
                       </Button>

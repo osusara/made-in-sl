@@ -107,13 +107,13 @@ const Register = () => {
                       </Form.Group>
                       <Button
                         type="submit"
-                        className="px-5 user-btn btn-custom"
+                        className="px-5 btn-custom-1"
                       >
                         Sign Up
                       </Button>
                     </Form>
                     <p className="text-center my-1">
-                      Don't have an account?{" "}
+                      Already have an account?{" "}
                       <Link style={{ color: "#b63a46" }} to="/login">
                         Sign In
                       </Link>
