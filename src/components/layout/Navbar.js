@@ -3,7 +3,7 @@ import { Navbar, Nav, Form, Button } from "react-bootstrap";
 
 const NavBar = () => {
   return (
-    <Navbar bg="light" variant="light" expand="lg" className="navbar-container">
+    <Navbar bg="light" variant="light" expand="lg" className="navbar-container shadow-sm">
       <Navbar.Brand style={{color: "#b63a46"}} href="/">Made In Sri Lanka</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
