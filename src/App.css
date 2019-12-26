@@ -146,6 +146,18 @@ body, html {
   border-style: none;
 }
 
+/* Alerts==================================================== */
+.alert {
+  text-align: center !important;
+  border-radius: 10rem !important;
+  border-style: none !important;
+}
+
+.alert-danger {
+  background-color: rgb(192, 60, 82) !important;
+  color: #ffffff !important;
+}
+
 /* Tab responsive========================================================================*/
 
 @media only screen and (max-width: 800px) {
