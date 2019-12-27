@@ -1,14 +1,15 @@
 import React, { Fragment, useState } from "react";
 import { Container, Row, Col, Card, Form, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { setAlert } from "../../actions/alert";
+import { register } from "../../actions/auth";
 import PropTypes from "prop-types";
 
 import Alert from "../layout/Alert";
 
-const Register = ({ setAlert }) => { // {setAlert} = props
+const Register = ({ setAlert, register, isAuthenticated }) => { // {setAlert} = props
   const [formData, setForMData] = useState({
     username: "",
     email: "",
@@ -26,9 +27,14 @@ const Register = ({ setAlert }) => { // {setAlert} = props
     if (password !== password2) {
       setAlert("passwords are not matching", "danger");
     } else {
-      console.log("SUCCESS");
+     register({ username, email, password });
     }
   };
+
+  // redirect after registering
+  if (isAuthenticated) {
+    return <Redirect to="/dashboard" />;
+  }
 
   return (
     <Fragment>
@@ -91,7 +97,7 @@ const Register = ({ setAlert }) => { // {setAlert} = props
                           name="password"
                           value={password}
                           onChange={e => onChange(e)}
-                          minLength="6"
+                          minLength="8"
                           required
                         />
                       </Form.Group>
@@ -106,7 +112,7 @@ const Register = ({ setAlert }) => { // {setAlert} = props
                           name="password2"
                           value={password2}
                           onChange={e => onChange(e)}
-                          minLength="6"
+                          minLength="8"
                           required
                         />
                       </Form.Group>
@@ -135,7 +141,13 @@ const Register = ({ setAlert }) => { // {setAlert} = props
 };
 
 Register.propTypes = {
-  setAlert: PropTypes.func.isRequired
+  setAlert: PropTypes.func.isRequired,
+  register: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool
 };
 
-export default connect(null, { setAlert })(Register);
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated
+})
+
+export default connect(mapStateToProps, { setAlert, register })(Register);
