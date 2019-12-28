@@ -3,11 +3,11 @@ import { Container, Row, Col, Card, Form, Button } from "react-bootstrap";
 import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
-import { setAlert } from "../../actions/alert";
-import { register } from "../../actions/auth";
+import { setAlert } from "../../../actions/alert";
+import { register } from "../../../actions/buyer/auth";
 import PropTypes from "prop-types";
 
-import Alert from "../layout/Alert";
+import Alert from "../../layout/Alert";
 
 const Register = ({ setAlert, register, isAuthenticated }) => { // {setAlert} = props
   const [formData, setForMData] = useState({
@@ -33,7 +33,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => { // {setAlert} = 
 
   // redirect after registering
   if (isAuthenticated) {
-    return <Redirect to="/dashboard" />;
+    return <Redirect to="/home" />;
   }
 
   return (
@@ -125,7 +125,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => { // {setAlert} = 
                     </Form>
                     <p className="text-center my-1">
                       Already have an account?{" "}
-                      <Link style={{ color: "#b63a46" }} to="/login">
+                      <Link style={{ color: "#b63a46" }} to="/buyer/login">
                         Sign In
                       </Link>
                     </p>

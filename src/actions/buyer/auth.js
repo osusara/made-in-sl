@@ -1,5 +1,5 @@
 import axios from "axios";
-import { setAlert } from "./alert";
+import { setAlert } from "../alert";
 import {
   REGISTER_SUCCESS,
   REGISTER_FAIL,
@@ -8,8 +8,8 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT
-} from "./types";
-import setAuthToken from "../utils/setAuthToken";
+} from "../types";
+import setAuthToken from "../../utils/setAuthToken";
 
 // load user
 export const loadUser = () => async dispatch =>{

@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { Navbar, Nav, Form, Button } from "react-bootstrap";
 import { connect } from "react-redux";
 import { PropTypes } from "prop-types";
-import { logout } from "../../actions/auth";
+import { logout } from "../../actions/buyer/auth";
 
 const NavBar = ({ auth: {isAuthenticated, loading}, logout}) => {
   
@@ -15,8 +15,8 @@ const NavBar = ({ auth: {isAuthenticated, loading}, logout}) => {
 
   const guestLinks = (
     <Fragment>
-      <Nav.Link href="/login" className="text-center">Login</Nav.Link>
-      <Nav.Link href="/register" className="text-center">Sign Up</Nav.Link>
+      <Nav.Link href="/buyer/login" className="text-center">Login</Nav.Link>
+      <Nav.Link href="/buyer/register" className="text-center">Sign Up</Nav.Link>
     </Fragment>
   );
   

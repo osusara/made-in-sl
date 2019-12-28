@@ -3,13 +3,15 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Navbar from "./components/layout/Navbar";
 import Landing from "./components/layout/Landing";
-import Login from "./components/auth/Login";
-import Register from "./components/auth/Register";
+import Login_Buyer from "./components/auth/buyer/Login";
+import Register_Buyer from "./components/auth/buyer/Register";
+import Login_Seller from "./components/auth/seller/Login";
+import Register_Seller from "./components/auth/seller/Register";
 import Footer from "./components/layout/Footer";
 
 import { Provider } from 'react-redux';
 import store from "./store";
-import { loadUser } from "./actions/auth";
+import { loadUser } from "./actions/buyer/auth";
 import setAuthToken from "./utils/setAuthToken";
 
 import './App.css';
@@ -35,8 +37,10 @@ const App = () => {
           <Route exact path="/" component={Landing} />
           <section style={{ padding: "0", margin: "0", height: "94%" }} className="container-fluid">
             <Switch>
-              <Route exact path="/register" component={Register} />
-              <Route exact path="/login" component={Login} />
+              <Route exact path="/buyer/register" component={Register_Buyer} />
+              <Route exact path="/buyer/login" component={Login_Buyer} />
+              <Route exact path="/seller/register" component={Register_Seller} />
+              <Route exact path="/seller/login" component={Login_Seller} />
             </Switch>
           </section>
           <Footer />
