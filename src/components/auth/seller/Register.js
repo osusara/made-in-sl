@@ -28,11 +28,12 @@ const Register = ({ setAlert, register, isAuthenticated, isSeller }) => { // {se
       setAlert("passwords are not matching", "danger");
     } else {
      register({ username, email, password });
+     return <Redirect to="/dashboard" />;
     }
   };
 
   // check if a user is authenticated to register a seller
-  if (!isAuthenticated && !isSeller) {
+  if (!isAuthenticated) {
     return <Redirect to="/seller/login" />;
   }
 

@@ -11,7 +11,8 @@ import Footer from "./components/layout/Footer";
 
 import { Provider } from 'react-redux';
 import store from "./store";
-import { loadUser } from "./actions/buyer/auth";
+import { loadBuyer } from "./actions/buyer/auth";
+import { loadSeller } from "./actions/seller/auth";
 import setAuthToken from "./utils/setAuthToken";
 
 import './App.css';
@@ -26,7 +27,7 @@ const App = () => {
   // life cycle Hook (similar to componentDidMount).
   // componentDidMount() is a life cycle method and it's work with classes. This is a function
   useEffect(() => {
-    store.dispatch(loadUser());
+    store.dispatch(loadBuyer());
   }, []); // with [], useEffect will run once when it mounted. unless it'll keep running when the state update
 
   return (

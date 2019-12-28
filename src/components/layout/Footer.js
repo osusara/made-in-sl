@@ -1,20 +1,20 @@
 import React, { Fragment } from "react";
+import { Link } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 import { connect } from "react-redux";
 import { PropTypes } from "prop-types";
-import { logout } from "../../actions/auth";
 
 const Footer = ({ auth: { isAuthenticated, isSeller, loading } }) => {
   const guestLinks = (
-    <a href="/seller/login" className="text-center" onClick={logout}>
+    <a href="/seller/login" className="text-center">
       Login as a Seller
     </a>
   );
 
   const authLinks = (
-    <a href="/seller/register" className="text-center">
+    <Link to="/seller/register" className="text-center link">
       Register a new Seller
-    </a>
+    </Link>
   );
 
   return (
@@ -22,7 +22,7 @@ const Footer = ({ auth: { isAuthenticated, isSeller, loading } }) => {
       <Row>
         <Col md={4} lg={4} sm={12} className="text-center px-1">
           {!loading && (
-            <Fragment>{isAuthenticated && isSeller ? authLinks : guestLinks}</Fragment>
+            <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
           )}
         </Col>
         <Col md={4} lg={4} sm={12} className="text-center px-1">

@@ -11,7 +11,7 @@ import {
 import setAuthToken from "../../utils/setAuthToken";
 
 // load user
-export const loadUser = () => async dispatch =>{
+export const loadBuyer = () => async dispatch =>{
   // check if a token is in localStorage
   if(localStorage.token) {
     setAuthToken(localStorage.token);
@@ -49,7 +49,7 @@ export const register = ({ username, email, password }) => async dispatch => {
       payload: res.data
     });
 
-    dispatch(loadUser());
+    dispatch(loadBuyer());
   } catch (error) {
     const errors = error.response.data.errors;
     if(errors) {
@@ -81,7 +81,7 @@ export const login = (email, password) => async dispatch => {
       payload: res.data
     });
 
-    dispatch(loadUser());
+    dispatch(loadBuyer());
   } catch (error) {
     const errors = error.response.data.errors;
     if(errors) {
