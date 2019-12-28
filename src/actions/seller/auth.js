@@ -1,13 +1,12 @@
 import axios from "axios";
 import { setAlert } from "../alert";
 import {
-  REGISTER_SUCCESS,
-  REGISTER_FAIL,
-  USER_LOADED,
+  SELLER_REGISTER_SUCCESS,
+  SELLER_REGISTER_FAIL,
+  SELLER_USER_LOADED,
   AUTH_ERROR,
-  LOGIN_SUCCESS,
-  LOGIN_FAIL,
-  LOGOUT
+  SELLER_LOGIN_SUCCESS,
+  SELLER_LOGIN_FAIL
 } from "../types";
 import setAuthToken from "../../utils/setAuthToken";
 
@@ -22,7 +21,7 @@ export const loadUser = () => async dispatch =>{
     const res = await axios.get('/api/seller/auth');
 
     dispatch({
-      type:USER_LOADED,
+      type:SELLER_USER_LOADED,
       payload: res.data
     });
   } catch (error) {
@@ -46,7 +45,7 @@ export const register = ({ username, email, password }) => async dispatch => {
     const res = await axios.post('/api/seller/users', body, config);
 
     dispatch({
-      type: REGISTER_SUCCESS,
+      type: SELLER_REGISTER_SUCCESS,
       payload: res.data
     });
 
@@ -58,7 +57,7 @@ export const register = ({ username, email, password }) => async dispatch => {
     }
 
     dispatch({
-      type: REGISTER_FAIL
+      type: SELLER_REGISTER_FAIL
     });
   }
 };
@@ -78,7 +77,7 @@ export const login = (email, password) => async dispatch => {
     const res = await axios.post('/api/seller/auth', body, config);
 
     dispatch({
-      type: LOGIN_SUCCESS,
+      type: SELLER_LOGIN_SUCCESS,
       payload: res.data
     });
 
@@ -90,12 +89,7 @@ export const login = (email, password) => async dispatch => {
     }
 
     dispatch({
-      type: LOGIN_FAIL
+      type: SELLER_LOGIN_FAIL
     });
   }
 };
-
-// Logout
-export const logout = () => dispatch => {
-  dispatch({ type: LOGOUT });
-}

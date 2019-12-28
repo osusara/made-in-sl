@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 import { Container, Row, Col, Card, Form, Button } from "react-bootstrap";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
@@ -22,8 +22,8 @@ const Login = ({ login, isAuthenticated }) => {
   };
 
   // redirect if logged in
-  if(isAuthenticated) {
-    return <Redirect to='/dashboard' />
+  if (isAuthenticated) {
+    return <Redirect to="/dashboard" />;
   }
 
   return (

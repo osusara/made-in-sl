@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { Navbar, Nav, Form, Button } from "react-bootstrap";
 import { connect } from "react-redux";
 import { PropTypes } from "prop-types";
-import { logout } from "../../actions/buyer/auth";
+import { logout } from "../../actions/auth";
 
 const NavBar = ({ auth: {isAuthenticated, loading}, logout}) => {
   

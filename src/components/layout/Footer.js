@@ -1,12 +1,12 @@
 import React, { Fragment } from "react";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import { connect } from "react-redux";
 import { PropTypes } from "prop-types";
-import { logout } from "../../actions/buyer/auth";
+import { logout } from "../../actions/auth";
 
-const Footer = ({ auth: { isAuthenticated, loading }, logout }) => {
+const Footer = ({ auth: { isAuthenticated, isSeller, loading } }) => {
   const guestLinks = (
-    <a href="/seller/login" className="text-center">
+    <a href="/seller/login" className="text-center" onClick={logout}>
       Login as a Seller
     </a>
   );
@@ -22,7 +22,7 @@ const Footer = ({ auth: { isAuthenticated, loading }, logout }) => {
       <Row>
         <Col md={4} lg={4} sm={12} className="text-center px-1">
           {!loading && (
-            <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
+            <Fragment>{isAuthenticated && isSeller ? authLinks : guestLinks}</Fragment>
           )}
         </Col>
         <Col md={4} lg={4} sm={12} className="text-center px-1">
@@ -45,7 +45,6 @@ const Footer = ({ auth: { isAuthenticated, loading }, logout }) => {
 };
 
 Footer.propTypes = {
-  logout: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired
 };
 
@@ -53,4 +52,4 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps, { logout })(Footer);
+export default connect(mapStateToProps, {})(Footer);

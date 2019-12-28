@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 import { Container, Row, Col, Card, Form, Button } from "react-bootstrap";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { setAlert } from "../../../actions/alert";
@@ -9,7 +9,7 @@ import PropTypes from "prop-types";
 
 import Alert from "../../layout/Alert";
 
-const Register = ({ setAlert, register, isAuthenticated }) => { // {setAlert} = props
+const Register = ({ setAlert, register, isAuthenticated, isSeller }) => { // {setAlert} = props
   const [formData, setForMData] = useState({
     username: "",
     email: "",
@@ -31,10 +31,11 @@ const Register = ({ setAlert, register, isAuthenticated }) => { // {setAlert} = 
     }
   };
 
-  // redirect after registering
-  if (isAuthenticated) {
-    return <Redirect to="/dashboard" />;
+  // check if a user is authenticated to register a seller
+  if (!isAuthenticated && !isSeller) {
+    return <Redirect to="/seller/login" />;
   }
+
 
   return (
     <Fragment>
@@ -140,7 +141,8 @@ const Register = ({ setAlert, register, isAuthenticated }) => { // {setAlert} = 
 Register.propTypes = {
   setAlert: PropTypes.func.isRequired,
   register: PropTypes.func.isRequired,
-  isAuthenticated: PropTypes.bool
+  isAuthenticated: PropTypes.bool,
+  user: PropTypes.object
 };
 
 const mapStateToProps = state => ({
