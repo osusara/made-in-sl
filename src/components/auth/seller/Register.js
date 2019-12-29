@@ -1,15 +1,23 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import { Container, Row, Col, Card, Form, Button } from "react-bootstrap";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
+import store from "../../../store";
 
 import { setAlert } from "../../../actions/alert";
 import { register } from "../../../actions/seller/auth";
+import { loadSeller } from "../../../actions/seller/auth";
 import PropTypes from "prop-types";
 
 import Alert from "../../layout/Alert";
 
-const Register = ({ setAlert, register, isAuthenticated, isSeller }) => { // {setAlert} = props
+const Register = ({ setAlert, register, isAuthenticated, user }) => { // {setAlert} = props
+
+  useEffect(() => {
+    store.dispatch(loadSeller());
+    console.log(user);
+  }, []);
+
   const [formData, setForMData] = useState({
     username: "",
     email: "",
@@ -27,9 +35,14 @@ const Register = ({ setAlert, register, isAuthenticated, isSeller }) => { // {se
     if (password !== password2) {
       setAlert("passwords are not matching", "danger");
     } else {
-     register({ username, email, password });
-     return <Redirect to="/dashboard" />;
+      if(user !== null && user.isSeller){
+        register({ username, email, password });
+      } else {
+        console.log("no way");
+      }
     }
+
+    return <Redirect to="/dashboard" />;
   };
 
   // check if a user is authenticated to register a seller
@@ -147,7 +160,8 @@ Register.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  isAuthenticated: state.auth.isAuthenticated
+  isAuthenticated: state.auth.isAuthenticated,
+  user: state.auth
 })
 
 export default connect(mapStateToProps, { setAlert, register })(Register);

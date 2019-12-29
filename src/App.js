@@ -12,7 +12,6 @@ import Footer from "./components/layout/Footer";
 import { Provider } from 'react-redux';
 import store from "./store";
 import { loadBuyer } from "./actions/buyer/auth";
-import { loadSeller } from "./actions/seller/auth";
 import setAuthToken from "./utils/setAuthToken";
 
 import './App.css';

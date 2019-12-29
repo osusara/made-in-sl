@@ -40,6 +40,14 @@ const Footer = ({ auth: { isAuthenticated, isSeller, loading } }) => {
           </p>
         </Col>
       </Row>
+      <hr />
+      <Row className="text-center">
+        <Col>
+          <span className="text-center text-dark">
+            &copy; Made in Sri Lanka | 2020
+          </span>
+        </Col>
+      </Row>
     </Container>
   );
 };
