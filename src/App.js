@@ -1,17 +1,17 @@
 import React, { Fragment, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import Navbar from "./components/layout/Navbar";
-import Landing from "./components/layout/Landing";
-import Login_Buyer from "./components/auth/buyer/Login";
-import Register_Buyer from "./components/auth/buyer/Register";
-import Login_Seller from "./components/auth/seller/Login";
-import Register_Seller from "./components/auth/seller/Register";
-import Footer from "./components/layout/Footer";
+// import Navbar from "./components/layout/Navbar";
+// import Landing from "./components/layout/Landing";
+// import Login from "./components/auth/Login";
+// import Register from "./components/auth/Register";
+// import Footer from "./components/layout/Footer";
+import Buyer from "./components/Buyer";
+import Admin from "./_admin/Admin";
 
-import { Provider } from 'react-redux';
-import store from "./store";
-import { loadBuyer } from "./actions/buyer/auth";
+// import { Provider } from 'react-redux';
+// import store from "./store";
+// import { loadUser } from "./actions/auth";
 import setAuthToken from "./utils/setAuthToken";
 
 import './App.css';
@@ -25,28 +25,26 @@ const App = () => {
 
   // life cycle Hook (similar to componentDidMount).
   // componentDidMount() is a life cycle method and it's work with classes. This is a function
-  useEffect(() => {
-    store.dispatch(loadBuyer());
-  }, []); // with [], useEffect will run once when it mounted. unless it'll keep running when the state update
+  // useEffect(() => {
+  //   store.dispatch(loadUser());
+  // }, []); // with [], useEffect will run once when it mounted. unless it'll keep running when the state update
 
   return (
-    <Provider store={store}>
+    // <Provider store={store}>
       <Router>
         <Fragment>
-          <Navbar />
-          <Route exact path="/" component={Landing} />
-          <section style={{ padding: "0", margin: "0", height: "94%" }} className="container-fluid">
+          {/* <Navbar /> */}
+          <Route exact path="/" component={Buyer} />
+          <Route exact path="/seller" component={Admin} />
+          {/* <section style={{ padding: "0", margin: "0" }} className="container-fluid">
             <Switch>
-              <Route exact path="/buyer/register" component={Register_Buyer} />
-              <Route exact path="/buyer/login" component={Login_Buyer} />
-              <Route exact path="/seller/register" component={Register_Seller} />
-              <Route exact path="/seller/login" component={Login_Seller} />
+              
             </Switch>
-          </section>
-          <Footer />
+          </section> */}
+          {/* <Footer /> */}
         </Fragment>
       </Router>
-    </Provider>
+    // </Provider>
   );
 }
 

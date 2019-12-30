@@ -1,23 +1,15 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { Fragment, useState } from "react";
 import { Container, Row, Col, Card, Form, Button } from "react-bootstrap";
-import { Redirect } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import store from "../../../store";
 
-import { setAlert } from "../../../actions/alert";
-import { register } from "../../../actions/seller/auth";
-import { loadSeller } from "../../../actions/seller/auth";
+import { setAlert } from "../../actions/alert";
+import { register } from "../../actions/auth";
 import PropTypes from "prop-types";
 
-import Alert from "../../layout/Alert";
+import Alert from "../layout/Alert";
 
-const Register = ({ setAlert, register, isAuthenticated, user }) => { // {setAlert} = props
-
-  useEffect(() => {
-    store.dispatch(loadSeller());
-    console.log(user);
-  }, []);
-
+const Register = ({ setAlert, register, isAuthenticated }) => { // {setAlert} = props
   const [formData, setForMData] = useState({
     username: "",
     email: "",
@@ -35,21 +27,14 @@ const Register = ({ setAlert, register, isAuthenticated, user }) => { // {setAle
     if (password !== password2) {
       setAlert("passwords are not matching", "danger");
     } else {
-      if(user !== null && user.isSeller){
-        register({ username, email, password });
-      } else {
-        console.log("no way");
-      }
+     register({ username, email, password });
     }
-
-    return <Redirect to="/dashboard" />;
   };
 
-  // check if a user is authenticated to register a seller
-  if (!isAuthenticated) {
-    return <Redirect to="/seller/login" />;
+  // redirect after registering
+  if (isAuthenticated) {
+    return <Redirect to="/dashboard" />;
   }
-
 
   return (
     <Fragment>
@@ -72,7 +57,7 @@ const Register = ({ setAlert, register, isAuthenticated, user }) => { // {setAle
               <Card className="my-5">
                 <Card.Body>
                   <Card.Title className="text-center my-2">
-                    <h1>Register a Seller</h1>
+                    <h1>Create an Account</h1>
                   </Card.Title>
                   <Card.Text>
                     
@@ -135,11 +120,14 @@ const Register = ({ setAlert, register, isAuthenticated, user }) => { // {setAle
                         type="submit"
                         className="px-5 btn-custom-1"
                       >
-                        Submit
+                        Sign Up
                       </Button>
                     </Form>
                     <p className="text-center my-1">
-                      Make sure that, the data you filled are correct
+                      Already have an account?{" "}
+                      <Link style={{ color: "#b63a46" }} to="/buyer/login">
+                        Sign In
+                      </Link>
                     </p>
                   </Card.Text>
                 </Card.Body>
@@ -155,13 +143,11 @@ const Register = ({ setAlert, register, isAuthenticated, user }) => { // {setAle
 Register.propTypes = {
   setAlert: PropTypes.func.isRequired,
   register: PropTypes.func.isRequired,
-  isAuthenticated: PropTypes.bool,
-  user: PropTypes.object
+  isAuthenticated: PropTypes.bool
 };
 
 const mapStateToProps = state => ({
-  isAuthenticated: state.auth.isAuthenticated,
-  user: state.auth
+  isAuthenticated: state.auth.isAuthenticated
 })
 
 export default connect(mapStateToProps, { setAlert, register })(Register);

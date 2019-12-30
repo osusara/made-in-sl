@@ -1,10 +1,10 @@
 import React, { Fragment, useState } from "react";
 import { Container, Row, Col, Card, Form, Button } from "react-bootstrap";
-import { Redirect } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { login } from "../../../actions/seller/auth";
+import { login } from "../../actions/auth";
 
 const Login = ({ login, isAuthenticated }) => {
   const [formData, setFormData] = useState({
@@ -22,8 +22,8 @@ const Login = ({ login, isAuthenticated }) => {
   };
 
   // redirect if logged in
-  if (isAuthenticated) {
-    return <Redirect to="/dashboard" />;
+  if(isAuthenticated) {
+    return <Redirect to='/home' />
   }
 
   return (
@@ -45,7 +45,7 @@ const Login = ({ login, isAuthenticated }) => {
               <Card className="my-5">
                 <Card.Body>
                   <Card.Title className="text-center my-2">
-                    <h1>Login as a Seller</h1>
+                    <h1>Sign In</h1>
                   </Card.Title>
                   <Card.Text>
                     <Form
@@ -86,7 +86,10 @@ const Login = ({ login, isAuthenticated }) => {
                       </Button>
                     </Form>
                     <p className="text-center my-1">
-                      This a special kind of login for the sellers.<br/>If you want to join as a seller, contact us.
+                      Don't have an account?{" "}
+                      <Link style={{ color: "#b63a46" }} to="/buyer/register">
+                        Sign Up
+                      </Link>
                     </p>
                   </Card.Text>
                 </Card.Body>

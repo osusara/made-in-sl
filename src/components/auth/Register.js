@@ -3,11 +3,11 @@ import { Container, Row, Col, Card, Form, Button } from "react-bootstrap";
 import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
-import { setAlert } from "../../../actions/alert";
-import { register } from "../../../actions/buyer/auth";
+import { setAlert } from "../../actions/alert";
+import { register } from "../../actions/auth";
 import PropTypes from "prop-types";
 
-import Alert from "../../layout/Alert";
+import Alert from "../layout/Alert";
 
 const Register = ({ setAlert, register, isAuthenticated }) => { // {setAlert} = props
   const [formData, setForMData] = useState({
