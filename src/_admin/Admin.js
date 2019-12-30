@@ -33,7 +33,7 @@ const Admin = () => {
         <Fragment>
           <Navbar />
           <Route exact path="/seller" component={Landing} />
-          <section style={{ padding: "0", margin: "0", height: "94%" }} className="container-fluid">
+          <section style={{ padding: "0", margin: "0" }} className="container-fluid">
             <Switch>
               <Route exact path="/seller/register" component={Register} />
               <Route exact path="/seller/login" component={Login} />

@@ -28,7 +28,7 @@ const Login = ({ login, isAuthenticated }) => {
 
   return (
     <Fragment>
-      <Container className="login-background user-background" fluid={true}>
+      <Container style={{ height: "84vh" }} className="login-background user-background" fluid={true}>
         <Row style={{ height: "100%" }} className="user-page">
           <Col lg={6} md={12} sm={12}>
             <h1 className="hero-title">
@@ -87,7 +87,7 @@ const Login = ({ login, isAuthenticated }) => {
                     </Form>
                     <p className="text-center my-1">
                       Don't have an account?{" "}
-                      <Link style={{ color: "#b63a46" }} to="/buyer/register">
+                      <Link style={{ color: "#b63a46" }} to="/register">
                         Sign Up
                       </Link>
                     </p>

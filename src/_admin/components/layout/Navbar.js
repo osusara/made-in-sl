@@ -17,7 +17,7 @@ const NavBar = ({ auth: {isAuthenticated, loading}, logout}) => {
   const guestLinks = (
     <Fragment>
       <Link to="/seller/login" className="nav-link text-center">Login as Admin</Link>
-      <Link to="/seller/register" className="nav-link text-center">Sign Up</Link>
+      <Link to="/seller/register" className="nav-link text-center">Register an Admin</Link>
     </Fragment>
   );
   

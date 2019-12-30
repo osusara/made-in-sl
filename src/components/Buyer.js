@@ -30,7 +30,7 @@ const User = () => {
         <Fragment>
           <Navbar />
           <Route exact path="/" component={Landing} />
-          <section style={{ padding: "0", margin: "0", height: "94%" }} className="container-fluid">
+          <section style={{ padding: "0", margin: "0" }} className="container-fluid">
             <Switch>
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />

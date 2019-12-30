@@ -38,7 +38,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => { // {setAlert} = 
 
   return (
     <Fragment>
-      <Container className="register-background user-background" fluid={true}>
+      <Container style={{ height: "84vh" }} className="register-background user-background" fluid={true}>
         <Row style={{ height: "100%" }} className="user-page">
           <Col lg={6} md={12} sm={12}>
             <h1 className="hero-title">
@@ -57,7 +57,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => { // {setAlert} = 
               <Card className="my-5">
                 <Card.Body>
                   <Card.Title className="text-center my-2">
-                    <h1>Create an Account</h1>
+                    <h1>Register an Admin</h1>
                   </Card.Title>
                   <Card.Text>
                     
@@ -125,7 +125,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => { // {setAlert} = 
                     </Form>
                     <p className="text-center my-1">
                       Already have an account?{" "}
-                      <Link style={{ color: "#b63a46" }} to="/buyer/login">
+                      <Link style={{ color: "#b63a46" }} to="/seller/login">
                         Sign In
                       </Link>
                     </p>
