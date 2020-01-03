@@ -2,10 +2,10 @@ import { combineReducers } from "redux";
 
 import alert from "./alert";
 import auth from "./auth";
-import adminAlert from "../_admin/reducers/adminAlert";
-import adminAuth from "../_admin/reducers/adminAuth";
+import profile from "./profile";
 
 export default combineReducers({
   alert,
-  auth
+  auth,
+  profile
 });
