@@ -5,7 +5,11 @@ import Navbar from "./components/layout/Navbar";
 import Landing from "./components/layout/Landing";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
+import Profile from "./components/profile/Profile";
+import CreateProfile from "./components/profile/CreateProfile";
+import EditProfile from "./components/profile/EditProfile";
 import Footer from "./components/layout/Footer";
+import PrivateRoute from "./components/routing/PrivateRoute";
 
 import { Provider } from 'react-redux';
 import { loadAdmin } from "./actions/auth";
@@ -37,6 +41,9 @@ const Admin = () => {
             <Switch>
               <Route exact path="/seller/register" component={Register} />
               <Route exact path="/seller/login" component={Login} />
+              <PrivateRoute exact path="/seller/profile" component={Profile} />
+              <PrivateRoute exact path="/seller/create-profile" component={CreateProfile} />
+              <PrivateRoute exact path="/seller/edit-profile" component={EditProfile} />
             </Switch>
           </section>
           <Footer />
