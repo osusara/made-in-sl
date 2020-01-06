@@ -9,7 +9,7 @@ const NavBar = ({ auth: {isAuthenticated, loading}, logout}) => {
   
   const authLinks = (
     <Fragment>
-      <Nav.Link onClick={logout} href="#!">
+      <Nav.Link onClick={logout} href="">
         <i className="fas fa-sign-out-alt"></i>
         <span className="hide-sm">Logout</span>
       </Nav.Link>

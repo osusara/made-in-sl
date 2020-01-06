@@ -1,20 +1,16 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
-import { connect } from "react-redux";
-import { PropTypes } from "prop-types";
 
-const Footer = ({ auth: { isAuthenticated, loading } }) => {
+const Footer = () => {
 
   return (
     <Container fluid="true" className="footer shadow-sm py-4">
       <Row>
         <Col md={4} lg={4} sm={12} className="text-center px-1">
-          <p>
-            wwwwwwwwwwwwwwww wwwwwwwwwwwwwwwwww
-            <br />
-            wwwwwwwwwwwwwwwwwwwwww
-          </p>
+          <a href="/" className="btn btn-custom-2">
+            User Mode
+          </a>
         </Col>
         <Col md={4} lg={4} sm={12} className="text-center px-1">
           <p>
@@ -43,12 +39,4 @@ const Footer = ({ auth: { isAuthenticated, loading } }) => {
   );
 };
 
-Footer.propTypes = {
-  auth: PropTypes.object.isRequired
-};
-
-const mapStateToProps = state => ({
-  auth: state.auth
-});
-
-export default connect(mapStateToProps, {})(Footer);
+export default Footer;

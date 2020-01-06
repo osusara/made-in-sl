@@ -31,7 +31,7 @@ const App = () => {
 
   return (
     // <Provider store={store}>
-      <Router>
+    <Router>
         <Fragment>
           {/* <Navbar /> */}
           <Route exact path="/" component={Buyer} />
@@ -43,7 +43,7 @@ const App = () => {
           </section> */}
           {/* <Footer /> */}
         </Fragment>
-      </Router>
+    </Router>
     // </Provider>
   );
 }

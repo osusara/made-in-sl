@@ -45,7 +45,7 @@ const Login = ({ login, isAuthenticated }) => {
               <Card className="my-5">
                 <Card.Body>
                   <Card.Title className="text-center my-2">
-                    <h1>Sign import 'module'</h1>
+                    <h1>Sign</h1>
                   </Card.Title>
                   <Card.Text>
                     <Form

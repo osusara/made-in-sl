@@ -86,7 +86,7 @@ const Login = ({ login, isAuthenticated }) => {
                       </Button>
                     </Form>
                     <p className="text-center my-1">
-                      Don't have an account?{" "}
+                      THIS FUNCTION SHOULD REMOVE{" "}
                       <Link style={{ color: "#b63a46" }} to="/seller/register">
                         Sign Up
                       </Link>

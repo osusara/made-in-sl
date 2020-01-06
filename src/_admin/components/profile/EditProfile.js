@@ -18,8 +18,6 @@ const EditProfile = ({
     email: ""
   });
 
-  const [displaySocialInputs, toggleSocialInputs] = useState(false);
-
   useEffect(() => {
     getCurrentProfile();
 
