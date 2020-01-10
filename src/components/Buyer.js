@@ -9,9 +9,11 @@ import Alert from "./layout/Alert";
 import Profile from "./profile/Profile";
 import CreateProfile from "./profile/CreateProfile";
 import EditProfile from "./profile/EditProfile";
+import AddAddress from "./profile/AddAddress";
 import Footer from "./layout/Footer";
 import PrivateRoute from "./routing/PrivateRoute";
 
+// redux
 import { Provider } from "react-redux";
 import store from "../store";
 import { loadUser } from "../actions/auth";
@@ -43,6 +45,7 @@ const User = () => {
               <PrivateRoute exact path="/profile" component={Profile} />
               <PrivateRoute exact path="/create-profile" component={CreateProfile} />
               <PrivateRoute exact path="/edit-profile" component={EditProfile} />
+              <PrivateRoute exact path="/add-address" component={AddAddress} />
             </Switch>
           </section>
           <Footer />

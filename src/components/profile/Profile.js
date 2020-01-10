@@ -1,15 +1,17 @@
 import React, { useEffect, Fragment } from "react";
 import { Link } from "react-router-dom";
-import { Container } from "react-bootstrap";
+import { Container, Button } from "react-bootstrap";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { getCurrentProfile } from "../../actions/profile";
+import { getCurrentProfile, deleteAccount } from "../../actions/profile";
 
 import Spinner from "../layout/Spinner";
 import ProfileActions from "./ProfileActions";
+import Address from "./Address";
 
 const Profile = ({
   getCurrentProfile,
+  deleteAccount,
   auth: { user },
   profile: { profile, loading }
 }) => {
@@ -32,6 +34,14 @@ const Profile = ({
         {profile !== null ? (
           <Fragment>
             <ProfileActions />
+            <Address address={profile.address} />
+
+            <div className="my-2">
+              <Button className="btn btn-danger">
+                <i className="fas fa-user-minus"></i>
+                {" "} Delete Account
+              </Button>
+            </div>
           </Fragment>
         ) : (
           <Fragment>
@@ -49,7 +59,8 @@ const Profile = ({
 Profile.propTypes = {
   getCurrentProfile: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
-  profile: PropTypes.object.isRequired
+  profile: PropTypes.object.isRequired,
+  deleteAccount: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -57,4 +68,4 @@ const mapStateToProps = state => ({
   profile: state.profile
 });
 
-export default connect(mapStateToProps, { getCurrentProfile })(Profile);
+export default connect(mapStateToProps, { getCurrentProfile, deleteAccount })(Profile);
