@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
+import Admin from "../_admin/Admin";
 import Navbar from "./layout/Navbar";
 import Landing from "./layout/Landing";
 import Login from "./auth/Login";
@@ -33,26 +34,62 @@ const User = () => {
 
   return (
     <Provider store={store}>
-      <Router>
-        <Fragment>
-          <Navbar />
-          <Route exact path="/" component={Landing} />
-          <section style={{ padding: "0", margin: "0" }} className="container-fluid">
+      
+        {/* <Fragment> */}
+          {/* <Navbar /> */}
+          <Route component={Navbar} />
+          {/* <Route exact path="/" component={Landing} />
+          <section style={{ padding: "0", margin: "0" }} className="container-fluid"> */}
             <Alert />
             <Switch>
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
+              <Route exact path="/seller" component={Admin} />
               <PrivateRoute exact path="/profile" component={Profile} />
               <PrivateRoute exact path="/create-profile" component={CreateProfile} />
               <PrivateRoute exact path="/edit-profile" component={EditProfile} />
               <PrivateRoute exact path="/add-address" component={AddAddress} />
             </Switch>
-          </section>
-          <Footer />
-        </Fragment>
-      </Router>
+          {/* </section>
+          <Footer /> */}
+          <Footer/>
+        {/* </Fragment> */}
+      
     </Provider>
   );
 };
 
 export default User;
+
+
+// import React, { Fragment } from "react";
+// import { BrowserRouter as Router, Route } from "react-router-dom";
+
+// import Buyer from "./components/Buyer";
+// import Admin from "./_admin/Admin";
+
+// import { Provider } from "react-redux";
+// import store from "./store";
+// import setAuthToken from "./utils/setAuthToken";
+
+// import "./App.css";
+
+// // check if a token is already in localStorage
+// if (localStorage.token) {
+//   setAuthToken(localStorage.token);
+// }
+
+// const App = () => {
+//   return (
+//     <Provider store={store}>
+//       <Router>
+//         <Fragment>
+//           <Route exact path="/" component={Buyer} />
+//           <Route exact path="/seller" component={Admin} />
+//         </Fragment>
+//       </Router>
+//     </Provider>
+//   );
+// };
+
+// export default App;

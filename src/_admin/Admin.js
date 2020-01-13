@@ -33,22 +33,29 @@ const Admin = () => {
 
   return (
     <Provider store={store}>
-      <Router>
+      {/* <Router>
         <Fragment>
           <Navbar />
           <Route exact path="/seller" component={Landing} />
-          <section style={{ padding: "0", margin: "0" }} className="container-fluid">
-            <Switch>
-              <Route exact path="/seller/register" component={Register} />
-              <Route exact path="/seller/login" component={Login} />
-              <PrivateRoute exact path="/seller/profile" component={Profile} />
-              <PrivateRoute exact path="/seller/create-profile" component={CreateProfile} />
-              <PrivateRoute exact path="/seller/edit-profile" component={EditProfile} />
-            </Switch>
-          </section>
+          <section style={{ padding: "0", margin: "0" }} className="container-fluid"> */}
+      {/* <Switch> */}
+      <Route component={Navbar} />
+      <Route exact path="/seller" component={Landing} />
+      <Route exact path="/seller/register" component={Register} />
+      <Route exact path="/seller/login" component={Login} />
+      <PrivateRoute exact path="/seller/profile" component={Profile} />
+      <PrivateRoute
+        exact
+        path="/seller/create-profile"
+        component={CreateProfile}
+      />
+      <PrivateRoute exact path="/seller/edit-profile" component={EditProfile} />
+      {/* </Switch> */}
+      {/* <Router component={Footer} /> */}
+      {/* </section>
           <Footer />
         </Fragment>
-      </Router>
+      </Router> */}
     </Provider>
   );
 }
