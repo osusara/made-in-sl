@@ -42,10 +42,10 @@ router.post("/", [auth, [
   // build profile object
   const profileFields = {};
   profileFields.user = req.user.id;
-  if(firstname) profileFields.firstname = firstname;
-  if(lastname) profileFields.lastname = lastname;
-  if(gender) profileFields.gender = gender;
-  if(phone) profileFields.phone = phone;
+  if (firstname) profileFields.firstname = firstname;
+  if (lastname) profileFields.lastname = lastname;
+  if (gender) profileFields.gender = gender;
+  if (phone) profileFields.phone = phone;
 
   try {
     let profile = await Profile.findOne({ user: req.user.id });

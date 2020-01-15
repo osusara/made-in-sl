@@ -1,27 +1,24 @@
 import React, { Fragment } from 'react';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 
-import Navbar from "./components/layout/Navbar";
-import Landing from "./components/layout/Landing";
-import Login from "./components/auth/Login";
-import Register from "./components/auth/Register";
+import Buyer from "./components/Buyer";
+import Admin from "./_admin/Admin";
+
+import setAuthToken from "./utils/setAuthToken";
 
 import './App.css';
+
+// check if a token is already in localStorage
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+}
 
 const App = () => {
   return (
     <Router>
-      <Fragment>
-        <section style={{ padding: "0", margin: "0", height: "94%"}} className="container-fluid">
-        <Navbar />
-        <Route exact path="/" component={Landing} />
-        
-          <Switch>
-            <Route exact path="/register" component={Register} />
-            <Route exact path="/login" component={Login} />
-          </Switch>
-        </section>
-      </Fragment>
+      <Redirect from="/" to="/buyer" />
+      <Route path="/buyer" component={Buyer} />
+      <Route path="/seller" component={Admin} />
     </Router>
   );
 }
