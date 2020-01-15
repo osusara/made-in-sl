@@ -204,7 +204,7 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentP
                       <Button type="submit" className="btn-custom-1 my-1">
                         Update
                       </Button>
-                      <Link className="btn btn-custom-2 my-1" to="/profile">
+                      <Link className="btn btn-custom-2 my-1" to="/buyer/profile">
                         Go Back
                       </Link>
                     </Form>

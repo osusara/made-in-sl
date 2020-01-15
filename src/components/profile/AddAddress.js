@@ -109,7 +109,7 @@ const AddAddress = ({ addAddress, history }) => {
                       <Button type="submit" className="btn-custom-1 my-1">
                         Add
                       </Button>
-                      <Link className="btn btn-custom-2 my-1" to="/profile">
+                      <Link className="btn btn-custom-2 my-1" to="/buyer/profile">
                         Go Back
                       </Link>
                     </Form>

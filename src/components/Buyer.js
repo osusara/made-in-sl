@@ -34,27 +34,26 @@ const User = () => {
 
   return (
     <Provider store={store}>
-      
-        {/* <Fragment> */}
-          {/* <Navbar /> */}
-          <Route component={Navbar} />
-          {/* <Route exact path="/" component={Landing} />
-          <section style={{ padding: "0", margin: "0" }} className="container-fluid"> */}
-            <Alert />
-            <Switch>
-              <Route exact path="/register" component={Register} />
-              <Route exact path="/login" component={Login} />
-              <Route exact path="/seller" component={Admin} />
-              <PrivateRoute exact path="/profile" component={Profile} />
-              <PrivateRoute exact path="/create-profile" component={CreateProfile} />
-              <PrivateRoute exact path="/edit-profile" component={EditProfile} />
-              <PrivateRoute exact path="/add-address" component={AddAddress} />
-            </Switch>
-          {/* </section>
-          <Footer /> */}
-          <Footer/>
-        {/* </Fragment> */}
-      
+      <Route component={Navbar} />
+      <Alert />
+      <Switch>
+        <Route exact path="/buyer" component={Landing} />
+        <Route exact path="/buyer/register" component={Register} />
+        <Route exact path="/buyer/login" component={Login} />
+        <PrivateRoute exact path="/buyer/profile" component={Profile} />
+        <PrivateRoute exact path="/buyer/create-profile" component={CreateProfile} />
+        <PrivateRoute exact path="/buyer/edit-profile" component={EditProfile} />
+        <PrivateRoute exact path="/buyer/add-address" component={AddAddress} />
+
+        {/* <Route exact path="/" component={Landing} />
+        <Route exact path="/register" component={Register} />
+        <Route exact path="/login" component={Login} />
+        <PrivateRoute exact path="/profile" component={Profile} />
+        <PrivateRoute exact path="/create-profile" component={CreateProfile} />
+        <PrivateRoute exact path="/edit-profile" component={EditProfile} />
+        <PrivateRoute exact path="/add-address" component={AddAddress} /> */}
+      </Switch>
+      <Route component={Footer} />
     </Provider>
   );
 };

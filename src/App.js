@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 
 import Buyer from "./components/Buyer";
 import Admin from "./_admin/Admin";
@@ -16,16 +16,10 @@ if (localStorage.token) {
 const App = () => {
   return (
     <Router>
+      <Redirect from="/" to="/buyer" />
+      <Route path="/buyer" component={Buyer} />
       <Route path="/seller" component={Admin} />
-      <Route path="/" component={Buyer} />
     </Router>
-
-    // <Router>
-    //   <Fragment>
-    //     <Route exact path="/" component={Buyer} />
-    //     <Route exact path="/seller" component={Admin} />
-    //   </Fragment>
-    // </Router>
   );
 }
 

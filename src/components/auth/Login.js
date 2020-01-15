@@ -23,7 +23,7 @@ const Login = ({ login, isAuthenticated }) => {
 
   // redirect if logged in
   if(isAuthenticated) {
-    return <Redirect to='/home' />
+    return <Redirect to='/buyer/home' />
   }
 
   return (
@@ -87,7 +87,7 @@ const Login = ({ login, isAuthenticated }) => {
                     </Form>
                     <p className="text-center my-1">
                       Don't have an account?{" "}
-                      <Link style={{ color: "#b63a46" }} to="/register">
+                      <Link style={{ color: "#b63a46" }} to="/buyer/register">
                         Sign Up
                       </Link>
                     </p>

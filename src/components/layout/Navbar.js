@@ -13,7 +13,7 @@ const NavBar = ({ auth: {isAuthenticated, loading}, logout}) => {
         <i className="fas fa-sign-out-alt"></i>
         <span className="hide-sm">Logout</span>
       </Nav.Link>
-      <Link to="/profile" className="nav nav-link">
+      <Link to="/buyer/profile" className="nav nav-link">
         <i className="fas fa-user"></i>
         <span className="hide-sm">Profile</span>
       </Link>
@@ -22,14 +22,14 @@ const NavBar = ({ auth: {isAuthenticated, loading}, logout}) => {
 
   const guestLinks = (
     <Fragment>
-      <Link to="/login" className="nav-link text-center">Login</Link>
-      <Link to="/register" className="nav-link text-center">Sign Up</Link>
+      <Link to="/buyer/login" className="nav-link text-center">Login</Link>
+      <Link to="/buyer/register" className="nav-link text-center">Sign Up</Link>
     </Fragment>
   );
   
   return (
     <Navbar bg="light" variant="light" expand="lg" className="navbar-container shadow-sm">
-      <Navbar.Brand style={{color: "#b63a46"}} href="/">Made In Sri Lanka</Navbar.Brand>
+      <Navbar.Brand style={{color: "#b63a46"}} href="/buyer">Made In Sri Lanka</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
