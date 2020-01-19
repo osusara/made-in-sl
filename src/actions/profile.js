@@ -1,6 +1,6 @@
 import axios from "axios";
 import { setAlert } from "./alert";
-import { GET_PROFILE, PROFILE_ERROR, UPDATE_PROFILE, CLEAR_PROFILE, ACCOUNT_DELETED } from "./types";
+import { GET_PROFILE, PROFILE_ERROR, UPDATE_PROFILE, CLEAR_PROFILE, ACCOUNT_DELETED, GET_PROFILES } from "./types";
 
 // get current profile
 export const getCurrentProfile = () => async dispatch => {
@@ -18,6 +18,41 @@ export const getCurrentProfile = () => async dispatch => {
     });
   }
 };
+
+// get all profiles
+export const getProfiles = () => async dispatch => {
+  dispatch({ type: CLEAR_PROFILE });
+
+  try {
+    const res = await axios.get("/api/buyer/profile");
+
+    dispatch({
+      type: GET_PROFILES,
+      payload: res.data
+    })
+  } catch (error) {
+    dispatch({
+      type: PROFILE_ERROR,
+      payload: { msg: error.response.statusText, status: error.response.status }
+    });
+  }
+}
+
+// get profile by id
+export const getProfileById = userId => async dispatch => {
+  try {
+    const res = await axios.get(`/api/buyer/profile/user/${userId}`);
+    dispatch({
+      type: GET_PROFILE,
+      payload: res.data
+    })
+  } catch (error) {
+    dispatch({
+      type: PROFILE_ERROR,
+      payload: { msg: error.response.statusText, status: error.response.status }
+    });
+  }
+}
 
 // create or update a profile
 export const createProfile = (formData, history, edit = false) => async dispatch => {
@@ -38,7 +73,7 @@ export const createProfile = (formData, history, edit = false) => async dispatch
     dispatch(setAlert(edit ? "Profile updated" : "Profile created", "success"));
 
     if (!edit) {
-      history.push("/profile");
+      history.push("/buyer/profile");
     }
   } catch (error) {
     const errors = error.response.data.errors;
@@ -71,7 +106,7 @@ export const addAddress = (formData, history) => async dispatch => {
     });
 
     dispatch(setAlert('Address added', 'success'));
-    history.push('/home');
+    history.push('/buyer/home');
 
   } catch (error) {
     const errors = error.response.data.errors;

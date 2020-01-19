@@ -1,7 +1,6 @@
 import React, { Fragment, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import Admin from "../_admin/Admin";
 import Navbar from "./layout/Navbar";
 import Landing from "./layout/Landing";
 import Login from "./auth/Login";
@@ -11,6 +10,8 @@ import Profile from "./profile/Profile";
 import CreateProfile from "./profile/CreateProfile";
 import EditProfile from "./profile/EditProfile";
 import AddAddress from "./profile/AddAddress";
+import Profiles from "./profiles/Profiles";
+import ProfileView from "./profiles/ProfileView"
 import Footer from "./layout/Footer";
 import PrivateRoute from "./routing/PrivateRoute";
 
@@ -40,6 +41,8 @@ const User = () => {
         <Route exact path="/buyer" component={Landing} />
         <Route exact path="/buyer/register" component={Register} />
         <Route exact path="/buyer/login" component={Login} />
+        <Route exact path="/buyer/profiles" component={Profiles} />
+        <Route exact path="/buyer/profile/:id" component={ProfileView} />
         <PrivateRoute exact path="/buyer/profile" component={Profile} />
         <PrivateRoute exact path="/buyer/create-profile" component={CreateProfile} />
         <PrivateRoute exact path="/buyer/edit-profile" component={EditProfile} />

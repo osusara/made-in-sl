@@ -6,35 +6,28 @@ import { deleteAddress } from "../../actions/profile";
 
 const Address = ({ address, deleteAddress }) => {
   const addresses = address.map(add => (
-    <ul key={add._id}>
-      <li>{add.no}</li>
-      <li>{add.street}</li>
-      <li>{add.city}</li>
-      <li>{add.postalcode}</li>
-      <li>{add.province}</li>
-      <li>{add.region}</li>
-      <li>
-        <Button
-          className="btn btn-custom-2"
-          onClick={() => deleteAddress(add._id)}
-        >
-          Remove Address
-        </Button>
-      </li>
-    </ul>
+    <Col md={3} sm={4} xs={6}>
+      <Card className="my-3">
+        <Card.Body>
+          <span key={add._id}>
+            {add.no}, {add.street}<br />
+            {add.city}, {add.postalcode}<br />
+            {add.province}, {add.region}<br />
+
+            <Button className="btn btn-dark btn-sm my-2" onClick={() => deleteAddress(add._id)}>
+              Delete Address
+            </Button>
+          </span>
+        </Card.Body>
+      </Card>
+    </Col>
   ));
 
   return (
     <Fragment>
       <Container>
-        <Row style={{ height: "100%" }} className="user-page">
-          <Col lg={6} md={12} sm={12}>
-            <Col md={8} sm={10} className="user-card">
-              <Card className="my-5">
-                <Card.Body>{addresses}</Card.Body>
-              </Card>
-            </Col>
-          </Col>
+        <Row style={{ height: "100%" }}>
+            {addresses}
         </Row>
       </Container>
     </Fragment>

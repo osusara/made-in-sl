@@ -1,6 +1,6 @@
 import React, { useEffect, Fragment } from "react";
 import { Link } from "react-router-dom";
-import { Container, Button } from "react-bootstrap";
+import { Container, Button, Card } from "react-bootstrap";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getCurrentProfile, deleteAccount } from "../../actions/profile";
@@ -23,25 +23,33 @@ const Profile = ({
     <Spinner />
   ) : (
     <Fragment>
-      <Container className="my-3">
-        <h1 className="large text-primary">Profile</h1>
-        <p className="lead">
-          <i className="fas fa-user"></i> Welcome{" "}
-          <strong>{user && user.username}</strong>
-        </p>
-
+      <Container className="my-5">
+        <h1>Profile</h1>
+        <span className="">
+          <i className="fas fa-user"></i> Username: {user && user.username}
+        </span><br />
+        <span>User ID: {user._id}</span>
         {/* check if the profile is available */}
         {profile !== null ? (
-          <Fragment>
+          <Fragment className="my-3">
             <ProfileActions />
-            <Address address={profile.address} />
+            <Card>
+              <Card.Body>
+                <h2>Hi, {profile.firstname} {profile.lastname}</h2>
+                <span>Contact: {profile.phone}</span> | <span>Email: {user.email}</span><br />
+                <span>Gender: {profile.gender}</span><br />
+                <Address address={profile.address} />
 
-            <div className="my-2">
-              <Button className="btn btn-danger">
-                <i className="fas fa-user-minus"></i>
-                {" "} Delete Account
-              </Button>
-            </div>
+                <div className="my-2">
+                  <Button
+                    className="btn btn-danger"
+                    onClick={() => deleteAccount()}
+                  >
+                    <i className="fas fa-user-minus"></i> Delete Account
+                  </Button>
+                </div>
+              </Card.Body>
+            </Card>
           </Fragment>
         ) : (
           <Fragment>
@@ -68,4 +76,6 @@ const mapStateToProps = state => ({
   profile: state.profile
 });
 
-export default connect(mapStateToProps, { getCurrentProfile, deleteAccount })(Profile);
+export default connect(mapStateToProps, { getCurrentProfile, deleteAccount })(
+  Profile
+);
