@@ -1,5 +1,5 @@
-import React, { Fragment } from 'react';
-import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 
 import Buyer from "./components/Buyer";
 import Admin from "./_admin/Admin";

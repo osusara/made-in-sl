@@ -9,27 +9,28 @@ const NavBar = ({ auth: {isAuthenticated, loading}, logout}) => {
   
   const authLinks = (
     <Fragment>
-      <Nav.Link onClick={logout} href="">
-        <i className="fas fa-sign-out-alt"></i>
-        <span className="hide-sm">Logout</span>
-      </Nav.Link>
+      <Link to="/seller/profiles" className="nav-link text-center">Sellers</Link>
+      <Link to="/seller/buyer/profiles" className="nav-link text-center">Buyers</Link>
       <Link to="/seller/profile" className="nav nav-link">
         <i className="fas fa-user"></i>
         <span className="hide-sm">Profile</span>
       </Link>
+      <Nav.Link onClick={logout} href="">
+        <i className="fas fa-sign-out-alt"></i>
+        <span className="hide-sm">Logout</span>
+      </Nav.Link>
     </Fragment>
   );
 
   const guestLinks = (
     <Fragment>
       <Link to="/seller/login" className="nav-link text-center">Login as Admin</Link>
-      <Link to="/seller/register" className="nav-link text-center">Register an Admin</Link>
     </Fragment>
   );
   
   return (
     <Navbar bg="light" variant="light" expand="lg" className="navbar-container shadow-sm">
-      <Navbar.Brand style={{color: "#b63a46"}} href="/">Made In Sri Lanka</Navbar.Brand>
+      <Link to="/seller"><Navbar.Brand style={{color: "#b63a46"}}>Made In Sri Lanka</Navbar.Brand></Link>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">

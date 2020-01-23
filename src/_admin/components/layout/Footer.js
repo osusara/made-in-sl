@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 
@@ -8,9 +8,9 @@ const Footer = () => {
     <Container fluid="true" className="footer shadow-sm py-4">
       <Row>
         <Col md={4} lg={4} sm={12} className="text-center px-1">
-          <a href="/" className="btn btn-custom-2">
+          <Link to="/buyer" className="btn btn-custom-2">
             User Mode
-          </a>
+          </Link>
         </Col>
         <Col md={4} lg={4} sm={12} className="text-center px-1">
           <p>

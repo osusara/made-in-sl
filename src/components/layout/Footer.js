@@ -1,6 +1,6 @@
-import React, { Fragment } from "react";
-import { Link, Redirect } from "react-router-dom"
-import { Container, Row, Col, Button } from "react-bootstrap";
+import React from "react";
+import { Link } from "react-router-dom"
+import { Container, Row, Col } from "react-bootstrap";
 
 const Footer = () => {
 

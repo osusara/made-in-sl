@@ -1,5 +1,5 @@
-import React, { Fragment, useEffect } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Route, Switch } from "react-router-dom";
 
 import Navbar from "./layout/Navbar";
 import Landing from "./layout/Landing";

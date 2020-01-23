@@ -27,7 +27,7 @@ const EditProfile = ({
       phone: loading || !profile.phone ? "" : profile.phone,
       email: loading || !profile.email ? "" : profile.email
     });
-  }, [loading]);
+  }, [loading, getCurrentProfile]);
 
   const {
     company,
@@ -48,7 +48,7 @@ const EditProfile = ({
     <Fragment className="my-2">
       <Container
         style={{ height: "84vh" }}
-        className="login-background user-background"
+        className="user-background"
         fluid={true}
       >
         <Row style={{ height: "100%" }} className="user-page">

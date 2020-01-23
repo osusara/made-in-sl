@@ -119,7 +119,7 @@ body, html {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  height: 100%;
+  height: 66%;
 }
 
 .user-card {
@@ -146,6 +146,9 @@ body, html {
   border-style: none;
 }
 
+/* Profile=================================================== */
+
+
 /* Alerts==================================================== */
 
 .alert {
@@ -163,8 +166,7 @@ body, html {
 
 .footer {
   background-image: linear-gradient(to right, #d5d4d0b0 0%, #d5d4d0b0 1%, #eeeeecab 31%, #efeeecab 75%, #e9e9e7a8 100%);
-  position: absolute;
-  bottom: 0;
+  
 }
 
 /* Tab responsive========================================================================*/

@@ -10,16 +10,8 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentP
     firstname: "",
     lastname: "",
     gender: "",
-    phone: "",
-    no: "",
-    street: "",
-    city: "",
-    postalcode: "",
-    province: "",
-    region: ""
+    phone: ""
   });
-
-  const [displaySocialInputs, toggleSocialInputs] = useState(false);
 
   useEffect(() => {
     getCurrentProfile();
@@ -28,27 +20,15 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentP
       firstname: loading || !profile.firstname ? "" : profile.firstname,
       lastname: loading || !profile.lastname ? "" : profile.lastname,
       gender: loading || !profile.gender ? "" : profile.gender,
-      phone: loading || !profile.phone ? "" : profile.phone,
-      no: loading || !profile.no ? "" : profile.no,
-      street: loading || !profile.street ? "" : profile.street,
-      city: loading || !profile.city ? "" : profile.city,
-      postalcode: loading || !profile.postalcode ? "" : profile.postalcode,
-      province: loading || !profile.province ? "" : profile.province,
-      region: loading || !profile.region ? "" : profile.region
+      phone: loading || !profile.phone ? "" : profile.phone
     });
-  }, [loading]);
+  }, [loading, getCurrentProfile]);
 
   const {
     firstname,
     lastname,
     gender,
-    phone,
-    no,
-    street,
-    city,
-    postalcode,
-    province,
-    region
+    phone
   } = formData;
 
   const onChange = e =>
@@ -63,7 +43,7 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentP
     <Fragment className="my-2">
       <Container
         style={{ height: "84vh" }}
-        className="login-background user-background"
+        className="user-background"
         fluid={true}
       >
         <Row style={{ height: "100%" }} className="user-page">
@@ -124,87 +104,10 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentP
                         />
                       </Form.Group>
 
-                      <div className="my-2">
-                        <Button
-                          onClick={() =>
-                            toggleSocialInputs(!displaySocialInputs)
-                          }
-                          type="button"
-                          className="btn-custom-2"
-                        >
-                          Add Your Address
-                        </Button>
-                      </div>
-
-                      {displaySocialInputs && (
-                        <Fragment>
-                          <Form.Group>
-                            <Form.Control
-                              type="text"
-                              placeholder="Address"
-                              className="text-center user-input"
-                              name="no"
-                              value={no}
-                              onChange={e => onChange(e)}
-                            />
-                          </Form.Group>
-                          <Form.Group>
-                            <Form.Control
-                              type="text"
-                              placeholder="Street"
-                              className="text-center user-input"
-                              name="street"
-                              value={street}
-                              onChange={e => onChange(e)}
-                            />
-                          </Form.Group>
-                          <Form.Group>
-                            <Form.Control
-                              type="text"
-                              placeholder="City"
-                              className="text-center user-input"
-                              name="city"
-                              value={city}
-                              onChange={e => onChange(e)}
-                            />
-                          </Form.Group>
-                          <Form.Group>
-                            <Form.Control
-                              type="text"
-                              placeholder="Postal Code"
-                              className="text-center user-input"
-                              name="postalcode"
-                              value={postalcode}
-                              onChange={e => onChange(e)}
-                            />
-                          </Form.Group>
-                          <Form.Group>
-                            <Form.Control
-                              type="text"
-                              placeholder="Province"
-                              className="text-center user-input"
-                              name="province"
-                              value={province}
-                              onChange={e => onChange(e)}
-                            />
-                          </Form.Group>
-                          <Form.Group>
-                            <Form.Control
-                              type="text"
-                              placeholder="Country"
-                              className="text-center user-input"
-                              name="region"
-                              value={region}
-                              onChange={e => onChange(e)}
-                            />
-                          </Form.Group>
-                        </Fragment>
-                      )}
-
                       <Button type="submit" className="btn-custom-1 my-1">
                         Update
                       </Button>
-                      <Link className="btn btn-custom-2 my-1" to="/buyer/profile">
+                      <Link className="btn btn-custom-2 mx-1 my-1" to="/buyer/profile">
                         Go Back
                       </Link>
                     </Form>

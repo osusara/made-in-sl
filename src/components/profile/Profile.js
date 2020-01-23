@@ -17,13 +17,13 @@ const Profile = ({
 }) => {
   useEffect(() => {
     getCurrentProfile();
-  }, []);
+  }, [getCurrentProfile]);
 
   return loading && profile === null ? (
     <Spinner />
   ) : (
     <Fragment>
-      <Container className="my-5">
+      <Container className="my-5 user-background">
         <h1>Profile</h1>
         <span className="">
           <i className="fas fa-user"></i> Username: {user && user.username}
@@ -54,7 +54,7 @@ const Profile = ({
         ) : (
           <Fragment>
             <p>You have not yet setup a profile, please add some info</p>
-            <Link to="/buyer/create-profile" className="btn btn-primary my-1">
+            <Link to="/buyer/create-profile" className="btn btn-dark my-1">
               Create Profile
             </Link>
           </Fragment>
