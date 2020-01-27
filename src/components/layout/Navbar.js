@@ -9,21 +9,19 @@ const NavBar = ({ auth: {isAuthenticated, loading}, logout}) => {
   
   const authLinks = (
     <Fragment>
-      <Link to="/buyer/profiles" className="nav-link text-center">Users</Link>
-      <Nav.Link onClick={logout} href="">
-        <i className="fas fa-sign-out-alt"></i>
-        <span className="hide-sm">Logout</span>
-      </Nav.Link>
       <Link to="/buyer/profile" className="nav nav-link">
         <i className="fas fa-user"></i>
         <span className="hide-sm">Profile</span>
       </Link>
+      <Nav.Link onClick={logout} href="">
+        <i className="fas fa-sign-out-alt"></i>
+        <span className="hide-sm">Logout</span>
+      </Nav.Link>
     </Fragment>
   );
 
   const guestLinks = (
     <Fragment>
-      <Link to="/buyer/profiles" className="nav-link text-center">Users</Link>
       <Link to="/buyer/login" className="nav-link text-center">Login</Link>
       <Link to="/buyer/register" className="nav-link text-center">Sign Up</Link>
     </Fragment>

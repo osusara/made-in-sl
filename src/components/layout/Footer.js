@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom"
 import { Container, Row, Col } from "react-bootstrap";
 
 const Footer = () => {
@@ -8,10 +7,7 @@ const Footer = () => {
     <Container fluid="true" className="footer shadow-sm py-4">
       <Row>
         <Col md={4} lg={4} sm={12} className="text-center px-1">
-          <Link to="/seller" className="btn btn-custom-2">
-            Administrator
-          </Link>
-          {/* <Link to="/seller" className="nav nav-link text-dark text-center">Administrator</Link> */}
+          wwwwwwwwwwwwwwwwwwwwww
         </Col>
         <Col md={4} lg={4} sm={12} className="text-center px-1">
           <p>
