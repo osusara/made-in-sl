@@ -55,7 +55,7 @@ router.post("/",[auth, [
 // @route   GET api/products
 // @desc    get all product list
 // @access  Private - sellers only
-router.get('/', auth, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     // get the recent products
     const products = await Product.find().sort({ date: -1 });
