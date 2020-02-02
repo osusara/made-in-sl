@@ -6,7 +6,14 @@ body, html {
   box-sizing: border-box;
 }
 
+.card {
+  border: none !important;
+}
 /* page common==================================================*/
+
+.text-color-1 {
+  color: #b63a46 !important;
+}
 
 .hero-title {
   font-weight: 900;
@@ -42,6 +49,7 @@ body, html {
 
 .btn-custom-2 {
   border-radius: 10rem !important;
+  transition: all 0.5s ease;
 }
 
 /*Landing page ===============================================*/
@@ -148,6 +156,39 @@ body, html {
 
 /* Profile=================================================== */
 
+/* Products=================================================== */
+
+.products {
+  padding: 0 !important;
+}
+
+.products-tea {
+  background-image: url("./assets/images/tea-background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.products-spices {
+  background-image: url("./assets/images/spices-background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.products-handcraft {
+  background-image: url("./assets/images/handcraft-background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.products-ceramic {
+  background-image: url("./assets/images/ceramic-background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
 /* Alerts==================================================== */
 
@@ -166,7 +207,6 @@ body, html {
 
 .footer {
   background-image: linear-gradient(to right, #d5d4d0b0 0%, #d5d4d0b0 1%, #eeeeecab 31%, #efeeecab 75%, #e9e9e7a8 100%);
-  
 }
 
 /* Tab responsive========================================================================*/

@@ -13,6 +13,8 @@ import SellerProfiles from "./components/profiles/SellerProfiles";
 import SellerProfileView from "./components/profiles/SellerProfileView";
 import BuyerProfiles from "./components/profiles/BuyerProfiles";
 import BuyerProfileView from "./components/profiles/BuyerProfileView";
+import Products from "./components/product/Products";
+import Product from "./components/product/Product";
 import Footer from "./components/layout/Footer";
 import PrivateRoute from "./components/routing/PrivateRoute";
 
@@ -44,6 +46,7 @@ const Admin = () => {
         <Route exact path="/seller" component={Landing} />
         <Route exact path="/seller/register" component={Register} />
         <Route exact path="/seller/login" component={Login} />
+
         <Route exact path="/seller/profiles" component={SellerProfiles} />
         <Route exact path="/seller/profile/:id" component={SellerProfileView} />
         <Route exact path="/seller/buyer/profiles" component={BuyerProfiles} />
@@ -51,6 +54,9 @@ const Admin = () => {
         <PrivateRoute exact path="/seller/profile" component={Profile} />
         <PrivateRoute exact path="/seller/create-profile" component={CreateProfile} />
         <PrivateRoute exact path="/seller/edit-profile" component={EditProfile} />
+
+        <Route exact path="/seller/produts" component={Products} />
+        <Route exact path="/seller/produts/:id" component={Product} />
       </Switch>
       <Route component={Footer} />
     </Provider>

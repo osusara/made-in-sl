@@ -10,6 +10,7 @@ import Profile from "./profile/Profile";
 import CreateProfile from "./profile/CreateProfile";
 import EditProfile from "./profile/EditProfile";
 import AddAddress from "./profile/AddAddress";
+import Products from "./product/Products";
 import Footer from "./layout/Footer";
 import PrivateRoute from "./routing/PrivateRoute";
 
@@ -39,6 +40,9 @@ const User = () => {
         <Route exact path="/buyer" component={Landing} />
         <Route exact path="/buyer/register" component={Register} />
         <Route exact path="/buyer/login" component={Login} />
+
+        <Route exact path="/buyer/products" component={Products} />
+
         <PrivateRoute exact path="/buyer/profile" component={Profile} />
         <PrivateRoute exact path="/buyer/create-profile" component={CreateProfile} />
         <PrivateRoute exact path="/buyer/edit-profile" component={EditProfile} />
