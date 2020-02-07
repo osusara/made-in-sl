@@ -54,7 +54,7 @@ export const createProfile = (formData, history, edit = false) => async dispatch
     dispatch(setAlert(edit ? "Profile updated" : "Profile created", "success"));
 
     if (!edit) {
-      history.push("/buyer/profile");
+      history.push("/profile");
     }
   } catch (error) {
     const errors = error.response.data.errors;
@@ -87,7 +87,7 @@ export const addAddress = (formData, history) => async dispatch => {
     });
 
     dispatch(setAlert('Address added', 'success'));
-    history.push('/buyer/home');
+    history.push('/home');
 
   } catch (error) {
     const errors = error.response.data.errors;

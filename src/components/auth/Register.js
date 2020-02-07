@@ -33,7 +33,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => { // {setAlert} = 
 
   // redirect after registering
   if (isAuthenticated) {
-    return <Redirect to="/buyer/home" />;
+    return <Redirect to="/" />;
   }
 
   return (
@@ -125,7 +125,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => { // {setAlert} = 
                     </Form>
                     <p className="text-center my-1">
                       Already have an account?{" "}
-                      <Link style={{ color: "#b63a46" }} to="/buyer/login">
+                      <Link style={{ color: "#b63a46" }} to="/login">
                         Sign In
                       </Link>
                     </p>

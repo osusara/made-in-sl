@@ -37,12 +37,8 @@ const AddAddress = ({ addAddress, history }) => {
             <Col md={8} sm={10} className="user-card">
               <Card className="my-5">
                 <Card.Body>
-                  <Card.Title className="text-center my-2">
+                  <Card.Title className="text-center mb-5">
                     <h1>Add Your Address</h1>
-                    <p className="lead">
-                      <i className="fas fa-home"></i> Let's get some information
-                      to make your profile stand out
-                    </p>
                   </Card.Title>
                   <Card.Text>
                     <Form onSubmit={e => onSubmit(e)}>
@@ -109,7 +105,7 @@ const AddAddress = ({ addAddress, history }) => {
                       <Button type="submit" className="btn-custom-1 my-1">
                         Add
                       </Button>
-                      <Link className="btn btn-custom-2 my-1" to="/buyer/profile">
+                      <Link className="btn btn-custom-2 my-1 mx-1" to="/profile">
                         Go Back
                       </Link>
                     </Form>

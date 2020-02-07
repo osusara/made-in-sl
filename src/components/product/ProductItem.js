@@ -8,7 +8,6 @@ import { addLike, removeLike } from "../../actions/product";
 
 const ProductItem = ({
   addLike,
-  removeLike,
   product: {
     _id,
     image,
@@ -22,14 +21,15 @@ const ProductItem = ({
     reviews,
     date
   },
+  auth,
   showActions
 }) => (
-  <Card className="shadow-sm border-none">
+  <Card className="shadow-sm border-none product-item" style={{ height: "100%" }}>
     <Card.Body>
       <Image
         src={process.env.PUBLIC_URL + `/products/${image}`}
         style={{ width: "100%" }}
-        rounded
+        className="product-image mb-2"
       />
       <Card.Title>
         <h4>{title}</h4>
@@ -48,32 +48,20 @@ const ProductItem = ({
 
       {showActions && (
         <Fragment>
-          <button
-            onClick={e => addLike(_id)}
-            type="button"
-            class="btn btn-light mx-1"
+          <Link onClick={e => addLike(_id)}>
+            <span>
+              <i class="fas fa-star"></i> {likes.length}
+            </span>
+          </Link>
+
+          <Link
+            to={`/products/${_id}`}
+            className="align-top btn btn-custom-1 float-right"
           >
-            <i class="fas fa-thumbs-up"></i> <span>{likes.length}</span>
-          </button>
-          <button
-            onClick={e => removeLike(_id)}
-            type="button"
-            class="btn btn-light mx-1"
-          >
-            <i class="fas fa-thumbs-down"></i>
-          </button>
-          <Link to={`/products/${_id}`} class="btn btn-primary mx-1">
-            Reviews <span class="comment-count">{reviews.length}</span>
+            Add to Cart
           </Link>
         </Fragment>
       )}
-
-      {/* <div>
-        <Link to={`/seller/profile/${user}`}>
-          <img class="round-img" src={avatar} alt="" />
-          <h4>{name}</h4>
-        </Link>
-      </div> */}
     </Card.Body>
   </Card>
 );
@@ -85,7 +73,7 @@ ProductItem.defaultProps = {
 ProductItem.propTypes = {
   product: PropTypes.object.isRequired,
   addLike: PropTypes.func.isRequired,
-  removeLike: PropTypes.func.isRequired
+  auth: PropTypes.object.isRequired
 };
 
-export default connect(null, { addLike, removeLike })(ProductItem);
+export default connect(null, { addLike })(ProductItem);

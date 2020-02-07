@@ -1,6 +1,6 @@
 import React, { useEffect, Fragment } from "react";
 import { Link } from "react-router-dom";
-import { Container, Button, Card } from "react-bootstrap";
+import { Container, Col, Button, Card, Row, Image } from "react-bootstrap";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getCurrentProfile, deleteAccount } from "../../actions/profile";
@@ -23,23 +23,29 @@ const Profile = ({
     <Spinner />
   ) : (
     <Fragment>
-      <Container className="my-5 user-background">
-        <h1>Profile</h1>
-        <span className="">
-          <i className="fas fa-user"></i> Username: {user && user.username}
-        </span><br />
-        <span>User ID: {user._id}</span>
+      <Container className="my-5">
+        <h1 className="text-color-1">Profile</h1>
+        <p className="">
+          <i className="fas fa-user"></i> Username: {user && user.username} |
+          User ID: {user._id}
+        </p>
+
         {/* check if the profile is available */}
         {profile !== null ? (
           <Fragment className="my-3">
             <ProfileActions />
-            <Card>
+            <Card className="shadow-sm">
               <Card.Body>
-                <h2>Hi, {profile.firstname} {profile.lastname}</h2>
-                <span>Contact: {profile.phone}</span> | <span>Email: {user.email}</span><br />
-                <span>Gender: {profile.gender}</span><br />
+                <Image src={user.avatar} alt="Profile image" rounded />
+                <h2 className="my-2">
+                  Hi, {profile.firstname} {profile.lastname}
+                </h2>
+                <span>Contact: {profile.phone}</span> |{" "}
+                <span>Email: {user.email}</span>
+                <br />
+                <span>Gender: {profile.gender}</span>
+                <br />
                 <Address address={profile.address} />
-
                 <div className="my-2">
                   <Button
                     className="btn btn-danger"
@@ -54,7 +60,7 @@ const Profile = ({
         ) : (
           <Fragment>
             <p>You have not yet setup a profile, please add some info</p>
-            <Link to="/buyer/create-profile" className="btn btn-dark my-1">
+            <Link to="/create-profile" className="btn btn-dark my-1">
               Create Profile
             </Link>
           </Fragment>

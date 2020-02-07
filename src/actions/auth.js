@@ -10,10 +10,6 @@ import {
   LOGOUT,
   CLEAR_PROFILE
 } from "./types";
-import {
-  LOGOUT as _LOGOUT,
-  CLEAR_PROFILE as _CLEAR_PROFILE
-} from "../_admin/actions/types";
 import setAuthToken from "../utils/setAuthToken";
 
 // load user
@@ -102,7 +98,5 @@ export const login = (email, password) => async dispatch => {
 // Logout
 export const logout = () => dispatch => {
   dispatch({ type: CLEAR_PROFILE });
-  dispatch({ type: _CLEAR_PROFILE });
-  dispatch({ type: _LOGOUT });
   dispatch({ type: LOGOUT });
 };

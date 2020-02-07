@@ -43,23 +43,6 @@ export const addLike = id => async dispatch => {
   }
 };
 
-// remove like
-export const removeLike = id => async dispatch => {
-  try {
-    const res = await axios.put(`/api/products/unlike/${id}`);
-
-    dispatch({
-      type: UPDATE_LIKES,
-      payload: { id, likes: res.data }
-    });
-  } catch (error) {
-    dispatch({
-      type: PRODUCT_ERROR,
-      payload: { msg: error.response.statusText, status: error.response.status }
-    });
-  }
-};
-
 // delete product
 export const deleteProduct = id => async dispatch => {
   try {

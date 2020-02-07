@@ -23,7 +23,7 @@ const Login = ({ login, isAuthenticated }) => {
 
   // redirect if logged in
   if(isAuthenticated) {
-    return <Redirect to='/buyer/home' />
+    return <Redirect to='/' />
   }
 
   return (
@@ -95,27 +95,13 @@ const Login = ({ login, isAuthenticated }) => {
                     </Form>
                     <p className="text-center my-1">
                       Don't have an account?{" "}
-                      <Link style={{ color: "#b63a46" }} to="/buyer/register">
+                      <Link style={{ color: "#b63a46" }} to="/register">
                         Sign Up
                       </Link>
                     </p>
                   </Card.Text>
                 </Card.Body>
               </Card>
-              <Row className="text-center mx-auto">
-                <Col>
-                  <span className="text-light text-center mx-auto float-center">
-                    If you are an Admin go to
-                    <Link
-                      to="/seller/login"
-                      className="btn-custom-2 text-light"
-                    >
-                      {" "}
-                      Administrator
-                    </Link>
-                  </span>
-                </Col>
-              </Row>
             </Col>
           </Col>
         </Row>

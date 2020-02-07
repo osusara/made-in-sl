@@ -51,12 +51,8 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentP
             <Col md={8} sm={10} className="user-card">
               <Card className="my-5">
                 <Card.Body>
-                  <Card.Title className="text-center my-2">
+                  <Card.Title className="text-center mb-5">
                     <h1>Update Your Profile</h1>
-                    <p className="lead">
-                      <i className="fas fa-user"></i> Let's get some information
-                      to make your profile stand out
-                    </p>
                   </Card.Title>
                   <Card.Text>
                     <Form onSubmit={e => onSubmit(e)}>
@@ -107,7 +103,7 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentP
                       <Button type="submit" className="btn-custom-1 my-1">
                         Update
                       </Button>
-                      <Link className="btn btn-custom-2 mx-1 my-1" to="/buyer/profile">
+                      <Link className="btn btn-custom-2 mx-1 my-1" to="/profile">
                         Go Back
                       </Link>
                     </Form>

@@ -9,6 +9,7 @@ body, html {
 .card {
   border: none !important;
 }
+
 /* page common==================================================*/
 
 .text-color-1 {
@@ -81,7 +82,6 @@ body, html {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  height: 100%;
 }
 
 /*Navbar =====================================================*/
@@ -162,32 +162,50 @@ body, html {
   padding: 0 !important;
 }
 
-.products-tea {
+.products-Tea {
   background-image: url("./assets/images/tea-background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
 
-.products-spices {
+.products-Spices {
   background-image: url("./assets/images/spices-background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
 
-.products-handcraft {
+.products-Handcraft {
   background-image: url("./assets/images/handcraft-background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
 
-.products-ceramic {
+.products-Ceramic {
   background-image: url("./assets/images/ceramic-background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.products-container {
+  background-image: linear-gradient(to top, #d5d4d0b0 0%, #d5d4d0b0 1%, #eeeeecab 31%, #efeeecab 75%, #e9e9e7a8 100%);
+  border-radius: 2rem;
+}
+
+.recent-products {
+  background-image: linear-gradient(45deg, #a73a5e 0%, #c43a30 100%);
+  border-radius: 2rem;
+}
+
+.product-item {
+  border-radius: 2rem !important;
+}
+
+.product-image {
+  border-radius: 2rem !important;
 }
 
 /* Alerts==================================================== */
