@@ -7,7 +7,10 @@
     "start": "node server",
     "server": "nodemon server",
     "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "admin": "npm start --prefix admin",
+    "dev-client": "concurrently \"npm run server\" \"npm run client\"",
+    "dev-admin": "concurrently \"npm run server\" \"npm run admin\"",
+    "dev": "concurrently \"npm run server\" \"npm run client\" \"npm run admin\""
   },
   "repository": {
     "type": "git",

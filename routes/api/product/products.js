@@ -34,6 +34,7 @@ router.post("/",[auth, [
         title: req.body.title,
         description: req.body.description,
         price: req.body.price,
+        category: req.body.category,
         name: user.username,
         avatar: user.avatar,
         user: req.user.id
@@ -131,45 +132,23 @@ router.put('/like/:id', auth, async (req, res) => {
     // check if the product has already been liked
     // get the user ids of each like (by filter()) and check if there's more than 0 which match with the current user's id
     if(product.likes.filter(like => like.user.toString() === req.user.id).length > 0) {
+
+      // if liked - get remove index
+      // get the index of user id which match with the current user's id
+      const removeIndex = product.likes.map(like => like.user.toString()).indexOf(req.user.id);
+      product.likes.splice(removeIndex, 1);
+
+      await product.save();
+      res.json(product.likes);
+
       return res.status(400).json({ msg: 'Post already liked' });
+    } else {
+      // if not liked
+      product.likes.unshift({ user: req.user.id });
+
+      await product.save();
+      res.json(product.likes);
     }
-
-    // if not liked
-    product.likes.unshift({ user: req.user.id });
-
-    await product.save();
-    res.json(product.likes);
-
-  } catch (error) {
-    console.error(error.message);
-    res.status(500).send("Server error");
-  }
-});
-
-// @route   PUT api/products/unlike/:id
-// @desc    unlike a product
-// @access  Private - buyers only
-router.put("/unlike/:id", auth, async (req, res) => {
-  try {
-    // get the product
-    const product = await Product.findById(req.params.id);
-
-    // check if the current user is a seller
-    if(req.user.isSeller) return res.status(401).json({ errors: [{ msg: 'User is not a buyer' }] });
-
-    // check if the product has already been unliked
-    // get the user id of each like (by filter()) and check if it's 0 which match with the current usre's id
-    if (product.likes.filter(like => like.user.toString() === req.user.id).length === 0) {
-      return res.status(400).json({ msg: "Post has not yet been liked" });
-    }
-
-    // if liked - get remove index
-    // get the index of user id which match with the current user's id
-    const removeIndex = product.likes.map(like => like.user.toString()).indexOf(req.user.id);
-    product.likes.splice(removeIndex, 1);
-
-    await product.save();
-    res.json(product.likes);
 
   } catch (error) {
     console.error(error.message);

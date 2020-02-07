@@ -22,6 +22,10 @@ const ProductSchema = new Schema({
     type: Number,
     required: true
   },
+  category: {
+    type: String,
+    required: true
+  },
   name: {
     type: String
   },
