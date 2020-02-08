@@ -32,14 +32,6 @@ const ProductSchema = new Schema({
   avatar: {
     type: String
   },
-  likes: [
-    {
-      user: {
-        type: Schema.Types.ObjectId,
-        ref: "users"
-      }
-    }
-  ],
   reviews: [
     {
       user: {
