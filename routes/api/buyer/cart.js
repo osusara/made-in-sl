@@ -24,7 +24,13 @@ router.get("/", auth, async (req, res) => {
 // @access  Private
 router.post("/:productId", auth, async (req, res) => {
 
-  const item = { product: req.params.productId };
+  const item = {
+    item: req.params.productId,
+    title: req.body.title,
+    price: req.body.price,
+    image: req.body.image,
+    description: req.body.description
+  };
   if (req.body.qty) item.qty = req.body.qty;
   if (req.body.isPerchased) item.isPerchased = req.body.isPerchased;
 
@@ -35,11 +41,11 @@ router.post("/:productId", auth, async (req, res) => {
     if(cart) {
 
       //check if the item is already in the cart
-      const productItem = await Cart.findOne({ $and: [{ user: req.user.id }, { 'products.product': req.params.productId }]});
+      const productItem = await Cart.findOne({ $and: [{ user: req.user.id }, { 'products.item': req.params.productId }]});
 
       if(productItem) {
         cart = await Cart.findOneAndUpdate(
-          { $and: [{ user: req.user.id }, { 'products.product': req.params.productId }] },
+          { $and: [{ user: req.user.id }, { 'products.item': req.params.productId }] },
           { 'products.$.qty': req.body.qty },
           { new: true }
         );
@@ -81,7 +87,7 @@ router.delete("/:productId", auth, async (req, res) => {
 
     // get the index of product to be removed
     const removeIndex = cart.products
-      .map(item => item.product)
+      .map(item => item.item)
       .indexOf(req.params.productId);
 
     cart.products.splice(removeIndex, 1);
