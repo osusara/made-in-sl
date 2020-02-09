@@ -3,7 +3,6 @@ import { setAlert } from "./alert";
 import {
   GET_PRODUCTS,
   ADD_PRODUCT,
-  UPDATE_LIKES,
   DELETE_PRODUCT,
   GET_PRODUCT,
   PRODUCT_ERROR
@@ -17,23 +16,6 @@ export const getProducts = () => async dispatch => {
     dispatch({
       type: GET_PRODUCTS,
       payload: res.data
-    });
-  } catch (error) {
-    dispatch({
-      type: PRODUCT_ERROR,
-      payload: { msg: error.response.statusText, status: error.response.status }
-    });
-  }
-};
-
-// add like
-export const addLike = id => async dispatch => {
-  try {
-    const res = await axios.put(`/api/products/like/${id}`);
-
-    dispatch({
-      type: UPDATE_LIKES,
-      payload: { id, likes: res.data }
     });
   } catch (error) {
     dispatch({
@@ -62,7 +44,7 @@ export const deleteProduct = id => async dispatch => {
   }
 };
 
-// add post
+// add product
 export const addProduct = formData => async dispatch => {
   const config = {
     header: {

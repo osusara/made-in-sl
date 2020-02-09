@@ -12,6 +12,9 @@ import CreateProfile from "./components/profile/CreateProfile";
 import EditProfile from "./components/profile/EditProfile";
 import AddAddress from "./components/profile/AddAddress";
 import Products from "./components/product/Products";
+import ProductView from "./components/product/ProductView";
+import ProductsByCategory from "./components/product/ProductsByCategory";
+import Cart from "./components/cart/Cart";
 import Footer from "./components/layout/Footer";
 import PrivateRoute from "./components/routing/PrivateRoute";
 
@@ -20,7 +23,6 @@ import { Provider } from "react-redux";
 import store from "./store";
 import { loadUser } from "./actions/auth";
 import setAuthToken from "./utils/setAuthToken";
-import ProductsByCategory from "./components/product/ProductsByCategory";
 
 // check if a token is already in localStorage
 if (localStorage.token) {
@@ -46,7 +48,10 @@ const App = () => {
           <Route exact path="/login" component={Login} />
 
           <Route exact path="/products" component={Products} />
+          <Route exact path="/products/:id" component={ProductView} />
           <Route exact path="/products/category/:category" component={ProductsByCategory} />
+
+          <PrivateRoute exact path="/cart" component={Cart} />
 
           <PrivateRoute exact path="/profile" component={Profile} />
           <PrivateRoute exact path="/create-profile" component={CreateProfile} />

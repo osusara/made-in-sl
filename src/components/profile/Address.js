@@ -6,8 +6,8 @@ import { deleteAddress } from "../../actions/profile";
 
 const Address = ({ address, deleteAddress }) => {
   const addresses = address.map(add => (
-    <Col md={3} sm={4} xs={6}>
-      <Card className="my-3 shadow">
+    <Col lg={4} md={6} sm={6} xs={6}>
+      <Card className="my-3 shadow-sm">
         <Card.Body>
           <span key={add._id}>
             {add.no}, {add.street}<br />

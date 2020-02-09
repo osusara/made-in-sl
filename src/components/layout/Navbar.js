@@ -10,11 +10,15 @@ const NavBar = ({ auth: {isAdmin, isAuthenticated, loading}, logout}) => {
   const authLinks = (
     <Fragment>
       <Link to="/products" className="nav-link text-center">
-        Products
+        <i className="fas fa-shopping-bag"></i>{" "}
+        <span className="hide-sm">Products</span>
+      </Link>
+      <Link to="/cart" className="nav-link text-center">
+        <i className="fas fa-shopping-cart"></i>{" "}
+        <span className="hide-sm">Cart</span>
       </Link>
       <Link to="/profile" className="nav nav-link">
-        <i className="fas fa-user"></i>{" "}
-        <span className="hide-sm">Profile</span>
+        <i className="fas fa-user"></i> <span className="hide-sm">Profile</span>
       </Link>
       <Nav.Link onClick={logout} href="/">
         <i className="fas fa-sign-out-alt"></i>{" "}
@@ -25,9 +29,18 @@ const NavBar = ({ auth: {isAdmin, isAuthenticated, loading}, logout}) => {
 
   const guestLinks = (
     <Fragment>
-      <Link to="/products" className="nav-link text-center">Products</Link>
-      <Link to="/login" className="nav-link text-center">Login</Link>
-      <Link to="/register" className="nav-link text-center">Sign Up</Link>
+      <Link to="/products" className="nav-link text-center">
+        <i className="fas fa-shopping-bag"></i>{" "}
+        <span className="hide-sm">Products</span>
+      </Link>
+      <Link to="/login" className="nav-link text-center">
+        <i className="fas fa-sign-in-alt"></i>{" "}
+        <span className="hide-sm">Login</span>
+      </Link>
+      <Link to="/register" className="nav-link text-center">
+        <i className="fas fa-user-plus"></i>{" "}
+        <span className="hide-sm">Sign Up</span>
+      </Link>
     </Fragment>
   );
   

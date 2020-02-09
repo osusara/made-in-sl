@@ -1,13 +1,11 @@
-import React, { Fragment } from "react";
-import { Container, Row, Col, Card, Button, Image } from "react-bootstrap";
+import React from "react";
+import { Card, Image } from "react-bootstrap";
+import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import Moment from "react-moment";
-import { connect } from "react-redux";
-import { addLike, removeLike } from "../../actions/product";
+import { addToCart } from "../../actions/cart";
 
 const ProductItem = ({
-  addLike,
   product: {
     _id,
     image,
@@ -17,50 +15,44 @@ const ProductItem = ({
     name,
     avatar,
     user,
-    likes,
     reviews,
     date
   },
   auth,
-  showActions
+  showActions,
+  addToCart
 }) => (
-  <Card className="shadow-sm border-none product-item" style={{ height: "100%" }}>
+  <Card
+    className="shadow-sm border-none product-item"
+    style={{ height: "100%" }}
+  >
     <Card.Body>
-      <Image
-        src={process.env.PUBLIC_URL + `/products/${image}`}
-        style={{ width: "100%" }}
-        className="product-image mb-2"
-      />
-      <Card.Title>
-        <h4>{title}</h4>
-      </Card.Title>
+      <Link to={`/products/${_id}`} className="link">
+        <Image
+          src={process.env.PUBLIC_URL + `/products/${image}`}
+          style={{ width: "100%" }}
+          className="product-image mb-2"
+        />
+        <Card.Title>
+          <h4 className="text-dark">{title}</h4>
+        </Card.Title>
+      </Link>
       <Card.Text>
-        <p>
-          {description}
-          <br />
-          <small>
-            Posted on <Moment format="YYYY/MM/DD">{date}</Moment>
-          </small>
-          <br />
-          <strong className="text-color-1">${price}</strong>
-        </p>
+        <p>{description}</p>
       </Card.Text>
 
       {showActions && (
-        <Fragment>
-          <Link onClick={e => addLike(_id)}>
-            <span>
-              <i class="fas fa-star"></i> {likes.length}
-            </span>
-          </Link>
-
-          <Link
-            to={`/products/${_id}`}
-            className="align-top btn btn-custom-1 float-right"
-          >
-            Add to Cart
-          </Link>
-        </Fragment>
+        <div className="float-right">
+          <h5>
+            <strong className="">${price}</strong>{" "}
+            <Link
+              className="btn btn-custom-1 mx-auto"
+              onClick={e => addToCart(_id, {title: title, price: price, image: image, description: description})}
+            >
+              Add to Cart <i className="fas fa-cart-plus"></i>
+            </Link>
+          </h5>
+        </div>
       )}
     </Card.Body>
   </Card>
@@ -72,8 +64,8 @@ ProductItem.defaultProps = {
 
 ProductItem.propTypes = {
   product: PropTypes.object.isRequired,
-  addLike: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
+  addToCart: PropTypes.func.isRequired
 };
 
-export default connect(null, { addLike })(ProductItem);
+export default connect(null, { addToCart })(ProductItem);

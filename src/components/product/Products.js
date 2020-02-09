@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 import PropTypes from "prop-types";
@@ -15,7 +15,7 @@ const Products = ({ getProducts, product: { products, loading } }) => {
   const teaProducts = () => {
     const teaElements = [];
     let i = 0;
-    products.map(product => {
+    products.forEach(product => {
       if (product.category === "Tea" && i < 4) {
         teaElements.push(
           <Col md={3} xs={4} className="my-3">
@@ -32,7 +32,7 @@ const Products = ({ getProducts, product: { products, loading } }) => {
   const spicesProducts = () => {
     const spicesElements = [];
     let i = 0;
-    products.map(product => {
+    products.forEach(product => {
       if (product.category === "Spices" && i < 4) {
         spicesElements.push(
           <Col md={3} xs={4} className="my-3">
@@ -49,7 +49,7 @@ const Products = ({ getProducts, product: { products, loading } }) => {
   const handcraftProducts = () => {
     const handcraftElements = [];
     let i = 0;
-    products.map(product => {
+    products.forEach(product => {
       if (product.category === "Handcraft" && i < 4) {
         handcraftElements.push(
           <Col md={3} xs={4} className="my-3">
@@ -66,7 +66,7 @@ const Products = ({ getProducts, product: { products, loading } }) => {
   const ceramicProducts = () => {
     const ceramicElements = [];
     let i = 0;
-    products.map(product => {
+    products.forEach(product => {
       if (product.category === "Ceramic" && i < 4) {
         ceramicElements.push(
           <Col md={3} xs={4} className="my-3">

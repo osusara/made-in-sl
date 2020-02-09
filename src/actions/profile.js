@@ -113,7 +113,7 @@ export const deleteAddress = id => async dispatch => {
       payload: res.data
     });
 
-    dispatch(setAlert("Address removed", "success"));
+    dispatch(setAlert("Address removed", "warning"));
   } catch (error) {
     dispatch({
       type: PROFILE_ERROR,

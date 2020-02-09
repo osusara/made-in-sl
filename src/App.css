@@ -10,6 +10,14 @@ body, html {
   border: none !important;
 }
 
+.link {
+  text-decoration: none !important;
+}
+
+.link:hover {
+  text-decoration: none !important;
+}
+
 /* page common==================================================*/
 
 .text-color-1 {
@@ -156,6 +164,10 @@ body, html {
 
 /* Profile=================================================== */
 
+.profile-container {
+  background-image: linear-gradient(to top, #d5d4d0b0 0%, #d5d4d0b0 1%, #eeeeecab 31%, #efeeecab 75%, #e9e9e7a8 100%);
+}
+
 /* Products=================================================== */
 
 .products {
@@ -192,7 +204,7 @@ body, html {
 
 .products-container {
   background-image: linear-gradient(to top, #d5d4d0b0 0%, #d5d4d0b0 1%, #eeeeecab 31%, #efeeecab 75%, #e9e9e7a8 100%);
-  border-radius: 2rem;
+  border-radius: 2rem !important;
 }
 
 .recent-products {
@@ -212,12 +224,26 @@ body, html {
 
 .alert {
   text-align: center !important;
-  border-radius: 10rem !important;
+  border-radius: 0 !important;
   border-style: none !important;
+  margin: 0 !important;
 }
 
 .alert-danger {
-  background-color: rgb(192, 60, 82) !important;
+  background-color: #c62128 !important;
+  background-image: linear-gradient(147deg, #c62128 0%, #a00000 74%) !important;
+  color: #ffffff !important;
+}
+
+.alert-warning {
+  background-color: #fbb034 !important;
+  background-image: linear-gradient(315deg, #fbb034 0%, #ffdd00 74%) !important;
+  color: #000000 !important;
+}
+
+.alert-success {
+  background-color: #3bb78f !important;
+  background-image: linear-gradient(315deg, #3bb78f 0%, #0bab64 74%) !important;
   color: #ffffff !important;
 }
 

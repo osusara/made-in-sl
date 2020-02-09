@@ -1,14 +1,13 @@
 import {
-  GET_PRODUCTS,
-  DELETE_PRODUCT,
-  ADD_PRODUCT,
-  GET_PRODUCT,
-  PRODUCT_ERROR
+  GET_CART,
+  REMOVE_FROM_CART,
+  ADD_TO_CART,
+  UPDATE_CART,
+  CART_ERROR
 } from "../actions/types";
 
 const initialState = {
-  products: [],
-  product: null,
+  items: null,
   loading: true,
   error: {}
 };
@@ -17,31 +16,25 @@ export default function(state = initialState, action) {
   const { type, payload } = action;
 
   switch (type) {
-    case GET_PRODUCTS:
+    case GET_CART:
       return {
         ...state,
-        products: payload,
+        items: payload,
         loading: false
       };
-    case GET_PRODUCT:
+    case ADD_TO_CART:
       return {
         ...state,
-        product: payload,
+        items: payload,
         loading: false
       };
-    case ADD_PRODUCT:
+    case REMOVE_FROM_CART:
       return {
         ...state,
-        products: [payload, ...state.products],
+        items: payload,
         loading: false
       };
-    case DELETE_PRODUCT:
-      return {
-        ...state,
-        products: state.products.filter(product => product._id !== payload),
-        loading: false
-      };
-    case PRODUCT_ERROR:
+    case CART_ERROR:
       return {
         ...state,
         error: payload,
