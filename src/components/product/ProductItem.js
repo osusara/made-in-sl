@@ -47,7 +47,7 @@ const ProductItem = ({
             <strong className="">${price}</strong>{" "}
             <Link
               className="btn btn-custom-1 mx-auto"
-              onClick={e => addToCart(_id, {title: title, price: price, image: image, description: description})}
+              onClick={e => addToCart(_id, {title: title, price: price, image: image, description: description, qty: 1})}
             >
               Add to Cart <i className="fas fa-cart-plus"></i>
             </Link>

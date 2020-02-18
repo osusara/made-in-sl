@@ -2,7 +2,6 @@ import {
   GET_CART,
   REMOVE_FROM_CART,
   ADD_TO_CART,
-  UPDATE_CART,
   CART_ERROR
 } from "../actions/types";
 

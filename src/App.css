@@ -220,6 +220,16 @@ body, html {
   border-radius: 2rem !important;
 }
 
+/* Cart====================================================== */
+
+.cart-qty-col {
+  width: 100%;
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
 /* Alerts==================================================== */
 
 .alert {
