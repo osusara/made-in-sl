@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import Spinner from "../layout/Spinner";
@@ -92,6 +92,17 @@ const Products = ({ getProducts, product: { products, loading } }) => {
           of the world has the opportunity to benefit from the country’s
           collective competitive advantage through sourcing from Sri Lanka.
         </p>
+      </Container>
+
+      <Container className="mx-auto">
+        <Card className="mx-auto">
+          <Card.Body>
+            <Form inline className="form-group my-1 mx-3 mx-auto">
+              <Form.Control type="text" placeholder="Product Name" className="mr-sm-2 text-center search-input mx-auto" />
+              <Button className="my-1 px-3 search-btn btn-outline-dark mx-auto">Search</Button>
+            </Form>
+          </Card.Body>
+        </Card>
       </Container>
 
       <Container fluid={true} className="products">

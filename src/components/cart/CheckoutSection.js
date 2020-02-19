@@ -12,16 +12,16 @@ const CheckoutSection = ({ getPrice, products }) => {
   });
 
   return (
-    <Card className="shadow">
+    <Card className="shadow mt-5">
       <Card.Body>
         <Row>
           <Col md={8}></Col>
           <Col className="align-middle" md={2}>
-            <h5 className="mt-1">Total ${formData.total}</h5>
+            <h3 className="mt-1">Total ${formData.total}</h3>
           </Col>
           <Col md={2}>
-            <Button className="btn-custom-1">
-              Checkout <i className="fas fa-shopping"></i>
+            <Button className="btn-custom-1 btn-lg">
+              Checkout <i className="fas fa-shopping-bag"></i>
             </Button>
           </Col>
         </Row>
@@ -31,7 +31,8 @@ const CheckoutSection = ({ getPrice, products }) => {
 };
 
 CheckoutSection.propTypes = {
-  products: PropTypes.object.isRequired
+  products: PropTypes.object.isRequired,
+  getPrice: PropTypes.func.isRequired
 };
 
 export default CheckoutSection;

@@ -27,7 +27,7 @@ const Cart = ({ getCart, cart: { items, loading } }) => {
     <Container>
       <CheckoutSection products={items.products} getPrice={getPrice} />
 
-      <Card className="shadow my-5">
+      <Card className="shadow mb-5 mt-4">
         <Card.Body>
           <ListGroup>
             {items.products.map(item => (

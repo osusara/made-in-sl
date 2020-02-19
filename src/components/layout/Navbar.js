@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
-import { Navbar, Nav, Form, Button } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 import { connect } from "react-redux";
 import { PropTypes } from "prop-types";
 import { logout } from "../../actions/auth";
@@ -10,7 +10,7 @@ const NavBar = ({ auth: {isAdmin, isAuthenticated, loading}, logout}) => {
   const authLinks = (
     <Fragment>
       <Link to="/products" className="nav-link text-center">
-        <i className="fas fa-shopping-bag"></i>{" "}
+        <i className="fas fa-store"></i>{" "}
         <span className="hide-sm">Products</span>
       </Link>
       <Link to="/cart" className="nav-link text-center">
@@ -30,7 +30,7 @@ const NavBar = ({ auth: {isAdmin, isAuthenticated, loading}, logout}) => {
   const guestLinks = (
     <Fragment>
       <Link to="/products" className="nav-link text-center">
-        <i className="fas fa-shopping-bag"></i>{" "}
+        <i className="fas fa-store"></i>{" "}
         <span className="hide-sm">Products</span>
       </Link>
       <Link to="/login" className="nav-link text-center">
@@ -50,10 +50,6 @@ const NavBar = ({ auth: {isAdmin, isAuthenticated, loading}, logout}) => {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
-          <Form inline className="form-group my-1 mx-3">
-            <Form.Control size="sm" type="text" placeholder="Product Name" className="mr-sm-2 text-center search-input" />
-            <Button variant="outline-secondary" size="sm" className="my-1 px-3 search-btn">Search</Button>
-          </Form>
           {!loading && (<Fragment>{ isAuthenticated ? authLinks : guestLinks }</Fragment>)}
         </Nav>
       </Navbar.Collapse>

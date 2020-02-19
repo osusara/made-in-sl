@@ -87,7 +87,7 @@ const CartItem = ({
                       paddingRight: "0"
                     }}
                   >
-                    <i className="fas fa-plus"></i>
+                    <i className="fas fa-check"></i>
                   </button>
                 </Col>
               </Row>
