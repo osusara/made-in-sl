@@ -3,13 +3,13 @@ Made In Sri Lanka is an E-commerce website which sells local products in Sri Lan
 
 ## Get started
 
-- Clone your forked repository
+- Clone your forked repository.
 
   ```
   git clone https://github.com/USERNAME/made-in-sl
   cd made-in-sl
   ```
-- Install backend dependencies
+- Install backend dependencies.
 
   ```
   npm install
@@ -22,15 +22,10 @@ Made In Sri Lanka is an E-commerce website which sells local products in Sri Lan
   cd made-in-sl-client
   ```
   
-- Install backend dependencies
+- Install backend dependencies and go back to main directory.
 
   ```
   npm install
-  ```
-  
-- Go back to main directory
-
-  ```
   cd ../
   ```
   
@@ -41,15 +36,10 @@ Made In Sri Lanka is an E-commerce website which sells local products in Sri Lan
   cd made-in-sl-admin
   ```
   
-- Install backend dependencies
+- Install backend dependencies and go back to main directory.
 
   ```
   npm install
-  ```
-  
-- Go back to main directory
-
-  ```
   cd ../
   ```
   
