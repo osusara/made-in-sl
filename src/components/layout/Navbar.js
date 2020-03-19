@@ -31,7 +31,7 @@ const NavBar = ({ auth: {isAuthenticated, loading}, logout}) => {
   
   return (
     <Navbar bg="light" variant="light" expand="lg" className="navbar-container shadow-sm">
-      <NavBar.Brand href="/" style={{color: "#b63a46"}}>Made In Sri Lanka</NavBar.Brand>
+      <Navbar.Brand href="/" style={{color: "#b63a46"}}>Made In Sri Lanka</NavBar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
