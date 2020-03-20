@@ -18,10 +18,8 @@ const Profiles = ({ getSellerProfiles, profile: { profiles, loading } }) => {
       ) : (
         <Fragment>
           <Container className="my-3 user-background">
-            <h1 className="">Sellers</h1>
-            <p className=""> Browse the Sellers</p>
             <Row>
-              <Col md={8} xs={10} className="">
+              <Col md={12} className="">
                 {profiles.length > 0 ? (
                   profiles.map(profile => (
                     <ProfileItem key={profile._id} profile={profile} />

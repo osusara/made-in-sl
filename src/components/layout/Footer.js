@@ -27,7 +27,7 @@ const Footer = () => {
       <hr />
       <Row className="text-center">
         <Col>
-          <span className="text-center text-dark">
+          <span className="text-center text-light">
             &copy; Made in Sri Lanka | 2020
           </span>
         </Col>

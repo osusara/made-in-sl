@@ -9,36 +9,34 @@ const NavBar = ({ auth: {isAuthenticated, loading}, logout}) => {
   
   const authLinks = (
     <Fragment>
-      <Link to="/profiles" className="nav-link text-center">Sellers</Link>
-      <Link to="/buyer/profiles" className="nav-link text-center">Buyers</Link>
-      <Link to="/addproduct" className="nav-link text-center">Add Products</Link>
+      <Link to="/profiles" className="nav-link text-center text-light">Sellers</Link>
+      <Link to="/buyer/profiles" className="nav-link text-center text-light">Buyers</Link>
+      <Link to="/addproduct" className="nav-link text-center text-light">Add Products</Link>
       <Link to="/profile" className="nav nav-link">
-        <i className="fas fa-user"></i>{" "}
-        <span className="hide-sm">Profile</span>
+        <i className="fas fa-admin"></i>{" "}
+        <span className="hide-sm text-light">Profile</span>
       </Link>
       <Nav.Link onClick={logout} href="/seller">
         <i className="fas fa-sign-out-alt"></i>{" "}
-        <span className="hide-sm">Logout</span>
+        <span className="hide-sm text-light">Logout</span>
       </Nav.Link>
     </Fragment>
   );
 
   const guestLinks = (
     <Fragment>
-      <Link to="/login" className="nav-link text-center">Login as Admin</Link>
+      <Link to="/login" className="nav-link text-center text-light">
+        Login as Admin
+      </Link>
     </Fragment>
   );
   
   return (
-    <Navbar bg="light" variant="light" expand="lg" className="navbar-container shadow-sm">
-      <Navbar.Brand href="/" style={{color: "#b63a46"}}>Made In Sri Lanka</NavBar.Brand>
+    <Navbar expand="lg" className="navbar-container">
+      <Navbar.Brand href="/" className="text-light">Made In Sri Lanka</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
-          <Form inline className="form-group my-1 mx-3">
-            <Form.Control size="sm" type="text" placeholder="Product Name" className="mr-sm-2 text-center search-input" />
-            <Button variant="outline-secondary" size="sm" className="my-1 px-3 search-btn">Search</Button>
-          </Form>
           {!loading && (<Fragment>{ isAuthenticated ? authLinks : guestLinks }</Fragment>)}
         </Nav>
       </Navbar.Collapse>

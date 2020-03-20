@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Navbar from "./components/layout/Navbar";
+import Main from "./components/Pages/Main";
 import Landing from "./components/layout/Landing";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
@@ -46,14 +47,14 @@ const App = () => {
         <Alert />
         
         <Switch>
-          <Route exact path="/" component={Landing} />
+          <Route exact path="/" component={Main} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
 
-          <Route exact path="/profiles" component={SellerProfiles} />
+          {/* <Route exact path="/profiles" component={SellerProfiles} />
           <Route exact path="/profile/:id" component={SellerProfileView} />
           <Route exact path="/buyer/profiles" component={BuyerProfiles} />
-          <Route exact path="/buyer/profile/:id" component={BuyerProfileView} />
+          <Route exact path="/buyer/profile/:id" component={BuyerProfileView} /> */}
 
           <PrivateRoute exact path="/profile" component={Profile} />
           <PrivateRoute

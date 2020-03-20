@@ -76,10 +76,21 @@ body, html {
   height: 100%;
 }
 
+/*Sidebar ====================================================*/
+
+.sidebar-container {
+  background-color: #444444;
+}
+
+.sidebar-text {
+  color: #ffffff !important;
+}
+
 /*Navbar =====================================================*/
 
 .navbar-container {
-  background-image: linear-gradient(to right, #d5d4d0b0 0%, #d5d4d0b0 1%, #eeeeecab 31%, #efeeecab 75%, #e9e9e7a8 100%);
+  background-color: #333333 !important;
+  color: #ffffff !important;
 }
 
 .search-btn {
@@ -162,7 +173,8 @@ body, html {
 /* Footer==================================================== */
 
 .footer {
-  background-image: linear-gradient(to right, #d5d4d0b0 0%, #d5d4d0b0 1%, #eeeeecab 31%, #efeeecab 75%, #e9e9e7a8 100%);
+  background-color: #333333 !important;
+  color: #ffffff !important;
 }
 
 /* Tab responsive========================================================================*/
