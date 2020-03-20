@@ -1,6 +1,6 @@
 import axios from "axios";
 import { setAlert } from "./alert";
-import { GET_PROFILE, PROFILE_ERROR, CLEAR_PROFILE, ACCOUNT_DELETED, GET_PROFILES } from "./types";
+import { GET_PROFILE, PROFILE_ERROR, CLEAR_PROFILE, ACCOUNT_DELETED, GET_BUYER_PROFILES, GET_SELLER_PROFILES } from "./types";
 
 // get current profile
 export const getCurrentProfile = () => async dispatch => {
@@ -27,7 +27,7 @@ export const getBuyerProfiles = () => async dispatch => {
     const res = await axios.get("/api/buyer/profile");
 
     dispatch({
-      type: GET_PROFILES,
+      type: GET_BUYER_PROFILES,
       payload: res.data
     })
   } catch (error) {
@@ -62,7 +62,7 @@ export const getSellerProfiles = () => async dispatch => {
     const res = await axios.get("/api/seller/profile");
 
     dispatch({
-      type: GET_PROFILES,
+      type: GET_SELLER_PROFILES,
       payload: res.data
     })
   } catch (error) {

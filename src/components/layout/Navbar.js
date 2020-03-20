@@ -9,8 +9,6 @@ const NavBar = ({ auth: {isAuthenticated, loading}, logout}) => {
   
   const authLinks = (
     <Fragment>
-      <Link to="/profiles" className="nav-link text-center text-light">Sellers</Link>
-      <Link to="/buyer/profiles" className="nav-link text-center text-light">Buyers</Link>
       <Link to="/addproduct" className="nav-link text-center text-light">Add Products</Link>
       <Link to="/profile" className="nav nav-link">
         <i className="fas fa-admin"></i>{" "}

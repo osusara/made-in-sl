@@ -3,12 +3,14 @@ import {
   PROFILE_ERROR,
   CLEAR_PROFILE,
   UPDATE_PROFILE,
-  GET_PROFILES
+  GET_BUYER_PROFILES,
+  GET_SELLER_PROFILES
 } from "../actions/types";
 
 const initialState = {
   profile: null,
-  profiles: [],
+  buyerprofiles: [],
+  sellerprofiles: [],
   loading: true,
   error: {}
 };
@@ -24,10 +26,16 @@ export default function(state = initialState, action) {
         profile: payload,
         loading: false
       };
-    case GET_PROFILES:
+    case GET_BUYER_PROFILES:
       return {
         ...state,
-        profiles: payload,
+        buyerprofiles: payload,
+        loading: false
+      };
+    case GET_SELLER_PROFILES:
+      return {
+        ...state,
+        sellerprofiles: payload,
         loading: false
       };
     case PROFILE_ERROR:

@@ -51,10 +51,10 @@ const App = () => {
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
 
-          {/* <Route exact path="/profiles" component={SellerProfiles} />
+          <Route exact path="/profiles" component={SellerProfiles} />
           <Route exact path="/profile/:id" component={SellerProfileView} />
           <Route exact path="/buyer/profiles" component={BuyerProfiles} />
-          <Route exact path="/buyer/profile/:id" component={BuyerProfileView} /> */}
+          <Route exact path="/buyer/profile/:id" component={BuyerProfileView} />
 
           <PrivateRoute exact path="/profile" component={Profile} />
           <PrivateRoute

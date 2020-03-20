@@ -6,7 +6,7 @@ import Spinner from "../layout/Spinner";
 import { getBuyerProfiles } from "../../actions/profile";
 import ProfileItem from "./BuyerProfileItem";
 
-const Profiles = ({ getBuyerProfiles, profile: { profiles, loading } }) => {
+const Profiles = ({ getBuyerProfiles, profile: { buyerprofiles, loading } }) => {
   useEffect(() => {
     getBuyerProfiles();
   }, [getBuyerProfiles]);
@@ -20,8 +20,8 @@ const Profiles = ({ getBuyerProfiles, profile: { profiles, loading } }) => {
           <Container className="my-3 user-background">
             <Row>
               <Col md={12} className="">
-                {profiles.length > 0 ? (
-                  profiles.map(profile => (
+                {buyerprofiles.length > 0 ? (
+                  buyerprofiles.map(profile => (
                     <ProfileItem key={profile._id} profile={profile} />
                   ))
                 ) : (
