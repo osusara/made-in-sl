@@ -33,7 +33,7 @@ const AddAddress = ({ addAddress, history }) => {
         fluid={true}
       >
         <Row style={{ height: "100%" }} className="user-page">
-          <Col lg={6} md={12} sm={12}>
+          <Col lg={6} md={12} sm={12} className="login-foreground user-foreground">
             <Col md={8} sm={10} className="user-card">
               <Card className="my-5">
                 <Card.Body>

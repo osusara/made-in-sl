@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
+import { Container, Row, Col, Form, Button, Card, Tab, Tabs } from "react-bootstrap";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import Spinner from "../layout/Spinner";
 import { getProducts } from "../../actions/product";
 import ProductItem from "./ProductItem";
+import ProductByCategory from "./ProductsByCategory";
 
 const Products = ({ getProducts, product: { products, loading } }) => {
   useEffect(() => {
@@ -84,27 +85,6 @@ const Products = ({ getProducts, product: { products, loading } }) => {
     <Spinner />
   ) : (
     <div>
-      <Container className="text-center my-5">
-        <h1 className="landing-title">Products</h1>
-        <p className="landing-text">
-          One of the region’s most vibrant export hubs, Sri Lanka is equally
-          competent in agriculture, manufacturing and service sector. The rest
-          of the world has the opportunity to benefit from the country’s
-          collective competitive advantage through sourcing from Sri Lanka.
-        </p>
-      </Container>
-
-      <Container className="mx-auto">
-        <Card className="mx-auto">
-          <Card.Body>
-            <Form inline className="form-group my-1 mx-3 mx-auto">
-              <Form.Control type="text" placeholder="Product Name" className="mr-sm-2 text-center search-input mx-auto" />
-              <Button className="my-1 px-3 search-btn btn-outline-dark mx-auto">Search</Button>
-            </Form>
-          </Card.Body>
-        </Card>
-      </Container>
-
       <Container fluid={true} className="products">
         {/* Tea Category */}
         <div className="my-5 py-5 px-5 products-category products-Tea shadow">
@@ -118,16 +98,7 @@ const Products = ({ getProducts, product: { products, loading } }) => {
             was introduced to the Ceylon Tea logo, to guard this commitment –
             the symbol of quality.
           </span>
-
           <Row>{teaProducts()}</Row>
-          <p className="text-center mt-3">
-            <Link
-              to={`/products/category/Tea`}
-              className="btn btn-outline-secondary btn-custom-2"
-            >
-              Browse More
-            </Link>
-          </p>
         </div>
 
         {/* Spices Category */}
@@ -142,15 +113,6 @@ const Products = ({ getProducts, product: { products, loading } }) => {
             diet would be very beneficial.
           </span>
           <Row>{spicesProducts()}</Row>
-
-          <p className="text-center mt-3">
-            <Link
-              to={`/products/category/Spices`}
-              className="btn btn-outline-secondary btn-custom-2"
-            >
-              Browse More
-            </Link>
-          </p>
         </div>
 
         {/* Handcrafte Category */}
@@ -164,15 +126,6 @@ const Products = ({ getProducts, product: { products, loading } }) => {
             lacquerwork and ceramics.
           </span>
           <Row>{handcraftProducts()}</Row>
-
-          <p className="text-center mt-3">
-            <Link
-              to={`/products/category/Handcraft`}
-              className="btn btn-outline-secondary btn-custom-2"
-            >
-              Browse More
-            </Link>
-          </p>
         </div>
 
         {/* Ceramics Category */}
@@ -186,15 +139,6 @@ const Products = ({ getProducts, product: { products, loading } }) => {
             illustrate the influence of this rich heritage.
           </span>
           <Row>{ceramicProducts()}</Row>
-
-          <p className="text-center mt-3">
-            <Link
-              to={`/products/category/Ceramic`}
-              className="btn btn-outline-secondary btn-custom-2"
-            >
-              Browse More
-            </Link>
-          </p>
         </div>
       </Container>
     </div>

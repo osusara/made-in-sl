@@ -61,6 +61,31 @@ body, html {
   transition: all 0.5s ease;
 }
 
+/*Navigation tabs ===============================================*/
+
+.navTab {
+  border: none !important;
+  text-align: center !important;
+  margin: auto !important;
+  width: 30%;
+}
+
+.navTab>a {
+  color: #b63a46 !important;
+  border: none !important;
+  margin: auto !important;
+}
+
+.navTab>a:hover {
+  border: none !important;
+}
+
+.navTab>a.active {
+  color: #ffffff !important;
+  background-image: linear-gradient(45deg, #a73a5e 0%, #c43a30 100%) !important;
+  border-radius: 2rem !important;
+}
+
 /*Landing page ===============================================*/
 
 .landing-title {

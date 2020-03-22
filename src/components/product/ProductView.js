@@ -64,9 +64,6 @@ const ProductView = ({ getProduct, product: { product, loading }, match }) => {
           </Card.Body>
         </Card>
 
-        <Link to="/products" className="btn btn-custom-2 mx-1 my-1">
-          Go Back to Products
-        </Link>
       </Container>
     </Fragment>
   );

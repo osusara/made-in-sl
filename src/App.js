@@ -11,9 +11,8 @@ import Profile from "./components/profile/Profile";
 import CreateProfile from "./components/profile/CreateProfile";
 import EditProfile from "./components/profile/EditProfile";
 import AddAddress from "./components/profile/AddAddress";
-import Products from "./components/product/Products";
+import ProductsTab from "./components/product/ProductsTab";
 import ProductView from "./components/product/ProductView";
-import ProductsByCategory from "./components/product/ProductsByCategory";
 import Cart from "./components/cart/Cart";
 import Footer from "./components/layout/Footer";
 import PrivateRoute from "./components/routing/PrivateRoute";
@@ -47,9 +46,7 @@ const App = () => {
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
 
-          <Route exact path="/products" component={Products} />
-          <Route exact path="/products/:id" component={ProductView} />
-          <Route exact path="/products/category/:category" component={ProductsByCategory} />
+          <Route exact path="/products" component={ProductsTab} />
 
           <PrivateRoute exact path="/cart" component={Cart} />
 

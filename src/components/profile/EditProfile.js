@@ -43,11 +43,16 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentP
     <Fragment className="my-2">
       <Container
         style={{ height: "84vh" }}
-        className="user-background"
+        className="login-background user-background"
         fluid={true}
       >
         <Row style={{ height: "100%" }} className="user-page">
-          <Col lg={6} md={12} sm={12}>
+          <Col
+            lg={6}
+            md={12}
+            sm={12}
+            className="login-foreground user-foreground"
+          >
             <Col md={8} sm={10} className="user-card">
               <Card className="my-5">
                 <Card.Body>
@@ -103,7 +108,10 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentP
                       <Button type="submit" className="btn-custom-1 my-1">
                         Update
                       </Button>
-                      <Link className="btn btn-custom-2 mx-1 my-1" to="/profile">
+                      <Link
+                        className="btn btn-custom-2 mx-1 my-1"
+                        to="/profile"
+                      >
                         Go Back
                       </Link>
                     </Form>
