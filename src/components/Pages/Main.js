@@ -33,7 +33,7 @@ const Main = ({ auth: {isAuthenticated, isAdmin, loading}}) => {
             </Nav.Item>
           </Nav>
         </Col>
-        <Col sm={10}>
+        <Col sm={10} className="dashboard-background py-4 px-2">
           <Route exact path="/buyer/profiles" component={BuyerProfiles} />
         {
           loading ? <Spinner /> : <Tab.Content>

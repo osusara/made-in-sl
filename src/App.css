@@ -76,6 +76,14 @@ body, html {
   height: 100%;
 }
 
+/*Dashboard ==================================================*/
+
+.dashboard-background{
+  background-color: #eeeeee !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 /*Sidebar ====================================================*/
 
 .sidebar-container {
