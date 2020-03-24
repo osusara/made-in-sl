@@ -12,7 +12,7 @@ const CheckoutSection = ({ getPrice, products }) => {
   });
 
   return (
-    <Card className="shadow mt-5">
+    <Card className="shadow mt-5" style={{ borderRadius: "1rem" }}>
       <Card.Body>
         <Row>
           <Col md={8}></Col>

@@ -28,13 +28,13 @@ const Footer = () => {
         <Col md={4} lg={4} sm={12} className="text-center px-4">
           <h4>Find Us On</h4>
           <hr style={{ width: "50%" }} />
-          <a href="https://facebook.com/" target="_blank" className="mx-3">
+          <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer" className="mx-3">
             <i className="fab fa-facebook fa-2x text-color-1"></i>
           </a>
-          <a href="https://twitter.com/" target="_blank" className="mx-3">
+          <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="mx-3">
             <i className="fab fa-twitter fa-2x text-color-1"></i>
           </a>
-          <a href="https://instagram.com/" target="_blank" className="mx-3">
+          <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" className="mx-3">
             <i className="fab fa-instagram fa-2x text-color-1"></i>
           </a>
         </Col>

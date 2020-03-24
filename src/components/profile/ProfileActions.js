@@ -10,6 +10,7 @@ const ProfileActions = () => {
       <Link to="/add-address" className="btn btn-light mx-1">
         <i class="fas fa-home"></i> Add New Address
       </Link>
+      <p className="text-secondary mx-2">*Make sure to add atleast one address for your profile</p>
     </div>
   );
 };

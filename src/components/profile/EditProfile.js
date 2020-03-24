@@ -120,6 +120,14 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentP
               </Card>
             </Col>
           </Col>
+          <Col lg={6} md={12} sm={12}>
+            <h1 className="hero-title">
+              Hi, there!
+              <p className="hero-text">
+                You can update your profile in here.
+              </p>
+            </h1>
+          </Col>
         </Row>
       </Container>
     </Fragment>

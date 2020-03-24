@@ -87,7 +87,7 @@ export const addAddress = (formData, history) => async dispatch => {
     });
 
     dispatch(setAlert('Address added', 'success'));
-    history.push('/home');
+    history.push('/profile');
 
   } catch (error) {
     const errors = error.response.data.errors;

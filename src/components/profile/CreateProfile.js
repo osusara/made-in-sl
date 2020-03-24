@@ -10,32 +10,14 @@ const CreateProfile = ({ createProfile, history }) => {
     firstname: "",
     lastname: "",
     gender: "",
-    phone: "",
-    no: "",
-    street: "",
-    city: "",
-    postalcode: "",
-    province: "",
-    region: ""
+    phone: ""
   });
 
-  const [displaySocialInputs, toggleSocialInputs] = useState(false);
+  const { firstname, lastname, gender, phone } = formData;
 
-  const {
-    firstname,
-    lastname,
-    gender,
-    phone,
-    no,
-    street,
-    city,
-    postalcode,
-    province,
-    region
-  } = formData;
-
-  const onChange = e =>
+  const onChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  }
 
   const onSubmit = e => {
     e.preventDefault();
@@ -50,7 +32,12 @@ const CreateProfile = ({ createProfile, history }) => {
         fluid={true}
       >
         <Row style={{ height: "100%" }} className="user-page">
-          <Col lg={6} md={12} sm={12}>
+          <Col
+            lg={6}
+            md={12}
+            sm={12}
+            className="login-foreground user-foreground"
+          >
             <Col md={8} sm={10} className="user-card">
               <Card className="my-5">
                 <Card.Body>
@@ -102,88 +89,13 @@ const CreateProfile = ({ createProfile, history }) => {
                           onChange={e => onChange(e)}
                         />
                       </Form.Group>
-
-                      <div className="my-2">
-                        <Button
-                          onClick={() =>
-                            toggleSocialInputs(!displaySocialInputs)
-                          }
-                          type="button"
-                          className="btn-custom-2"
-                        >
-                          Add Your Address
-                        </Button>
-                      </div>
-
-                      {displaySocialInputs && (
-                        <Fragment>
-                          <Form.Group>
-                            <Form.Control
-                              type="text"
-                              placeholder="Address"
-                              className="text-center user-input"
-                              name="no"
-                              value={no}
-                              onChange={e => onChange(e)}
-                            />
-                          </Form.Group>
-                          <Form.Group>
-                            <Form.Control
-                              type="text"
-                              placeholder="Street"
-                              className="text-center user-input"
-                              name="street"
-                              value={street}
-                              onChange={e => onChange(e)}
-                            />
-                          </Form.Group>
-                          <Form.Group>
-                            <Form.Control
-                              type="text"
-                              placeholder="City"
-                              className="text-center user-input"
-                              name="city"
-                              value={city}
-                              onChange={e => onChange(e)}
-                            />
-                          </Form.Group>
-                          <Form.Group>
-                            <Form.Control
-                              type="text"
-                              placeholder="Postal Code"
-                              className="text-center user-input"
-                              name="postalcode"
-                              value={postalcode}
-                              onChange={e => onChange(e)}
-                            />
-                          </Form.Group>
-                          <Form.Group>
-                            <Form.Control
-                              type="text"
-                              placeholder="Province"
-                              className="text-center user-input"
-                              name="province"
-                              value={province}
-                              onChange={e => onChange(e)}
-                            />
-                          </Form.Group>
-                          <Form.Group>
-                            <Form.Control
-                              type="text"
-                              placeholder="Region"
-                              className="text-center user-input"
-                              name="region"
-                              value={region}
-                              onChange={e => onChange(e)}
-                            />
-                          </Form.Group>
-                        </Fragment>
-                      )}
-
                       <Button type="submit" className="btn-custom-1 my-1">
                         Create
                       </Button>
-                      <Link className="btn btn-custom-2 my-1 mx-1" to="/profile">
+                      <Link
+                        className="btn btn-custom-2 my-1 mx-1"
+                        to="/profile"
+                      >
                         Go Back
                       </Link>
                     </Form>
@@ -194,13 +106,10 @@ const CreateProfile = ({ createProfile, history }) => {
           </Col>
           <Col lg={6} md={12} sm={12}>
             <h1 className="hero-title">
-              Welcome to
-              <br />
-              Made in Sri Lanka
+              Hi, there!
               <p className="hero-text">
-                Buy the finest products made in Sri Lanka for low price and in
-                best quality. Only on Made in Sri Lanka, the world's online
-                marketplace.
+                We would love to know more about you. Create your profile by
+                filling the form and click on Create button.
               </p>
             </h1>
           </Col>
@@ -211,7 +120,7 @@ const CreateProfile = ({ createProfile, history }) => {
 };
 
 CreateProfile.propTypes = {
-  createProfile: PropTypes.func.isRequired
+  createProfile: PropTypes.func.isRequired,
 };
 
 // with router is for the "history"

@@ -1,19 +1,12 @@
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 import {
   Container,
-  Row,
-  Col,
-  Form,
-  Button,
-  Card,
   Tab,
   Tabs
 } from "react-bootstrap";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import Spinner from "../layout/Spinner";
-import ProductItem from "./ProductItem";
 import ProductByCategory from "./ProductsByCategory";
 import Products from "./Products";
 

@@ -19,19 +19,28 @@ const Profile = ({
     getCurrentProfile();
   }, [getCurrentProfile]);
 
-  return loading && profile === null ? (
+  return loading && profile === null && user === null ? (
     <Spinner />
   ) : (
     <Container fluid={true} className="register-background py-4">
-      <Container style={{backgroundColor: "#ffffff", borderRadius: "1rem"}} className="py-4 px-4">
-        <h1 className="text-color-1">Profile</h1>
-        <p className="">
-          <i className="fas fa-user"></i> Username: {user && user.username} |
-          User ID: {user._id}
-        </p>
+      <Container
+        style={{ backgroundColor: "#ffffff", borderRadius: "1rem" }}
+        className="py-4 px-4"
+      >
+        {user === null ? (
+          <Spinner />
+        ) : (
+          <div>
+            <h1 className="text-color-1">Profile</h1>
+            <p className="">
+              <i className="fas fa-user"></i> Username: {user && user.username}{" "}
+              | User ID: {user._id}
+            </p>
+          </div>
+        )}
 
         {/* check if the profile is available */}
-        {profile !== null ? (
+        {profile !== null && user !== null ? (
           <Fragment className="my-3">
             <ProfileActions />
             <Card className="profile-container shadow-sm">

@@ -1,12 +1,10 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
-import { Container, Row, Col, Form, Button, Card, Tab, Tabs } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import Spinner from "../layout/Spinner";
 import { getProducts } from "../../actions/product";
 import ProductItem from "./ProductItem";
-import ProductByCategory from "./ProductsByCategory";
 
 const Products = ({ getProducts, product: { products, loading } }) => {
   useEffect(() => {

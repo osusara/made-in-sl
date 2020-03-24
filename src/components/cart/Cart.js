@@ -5,7 +5,8 @@ import PropTypes from "prop-types";
 import { getCart } from "../../actions/cart";
 import Spinner from "../layout/Spinner";
 import CartItem from "./CartItem";
-import CheckoutSection from "./CheckoutSection"
+import CheckoutSection from "./CheckoutSection";
+import CartEmpty from "./CartEmpty";
 
 const Cart = ({ getCart, cart: { items, loading } }) => {
   useEffect(() => {
@@ -24,20 +25,24 @@ const Cart = ({ getCart, cart: { items, loading } }) => {
   return loading ? (
     <Spinner />
   ) : (
-    <Container fluid={true} className="register-background py-4">
-      <Container>
-        <CheckoutSection products={items.products} getPrice={getPrice} />
+    <Container fluid={true} className="register-background user-foreground py-4">
+        {items === null ? (<CartEmpty />) : (
+          items.products.length === 0 ? (<CartEmpty />) : (
+            <Container>
+              <CheckoutSection products={items.products} getPrice={getPrice} />
 
-        <Card className="shadow mb-5 mt-4">
-          <Card.Body>
-            <ListGroup>
-              {items.products.map(item => (
-                <CartItem key={item._id} item={item} />
-              ))}
-            </ListGroup>
-          </Card.Body>
-        </Card>
-      </Container>
+              <Card style={{borderRadius: "1rem"}} className="shadow mb-5 mt-4">
+                <Card.Body>
+                  <ListGroup>
+                    {items.products.map(item => (
+                      <CartItem key={item._id} item={item} />
+                    ))}
+                  </ListGroup>
+                </Card.Body>
+              </Card>
+            </Container>
+          )
+        )}
     </Container>
   );
 };
