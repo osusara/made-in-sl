@@ -46,7 +46,7 @@ export const deleteProduct = id => async dispatch => {
   }
 };
 
-// add post
+// add product
 export const addProduct = formData => async dispatch => {
   const config = {
     header: {

@@ -1,35 +1,46 @@
 import React, { useState } from "react";
 import { Container, Row, Col, Input, Button, Form } from "react-bootstrap";
+import ImageUploader from "react-images-upload";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addProduct } from "../../actions/product";
 
 const ProductForm = ({ addProduct }) => {
   const [formData, setFormData] = useState({
+    image: "",
     title: "",
     description: "",
     price: "",
     category: "none"
   });
 
-  const { title, description, price, category } = formData;
+  const { image, title, description, price, category } = formData;
 
   const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const onDrop = picture =>
+    setFormData({ image: picture[0].name });
 
   return (
     <Form
       onSubmit={e => {
         e.preventDefault();
-        addProduct({ title, description, price, category });
-        setFormData({
-          title: "",
-          description: "",
-          price: "",
-          category: "none"
-        });
+        addProduct(formData);
       }}
     >
+      <Form.Group>
+        <ImageUploader
+          name="image"
+          value={image}
+          withIcon={true}
+          withPreview={true}
+          onChange={onDrop}
+          imgExtension={[".jpg"]}
+          maxFileSize={5242880}
+          singleImage={true}
+        />
+      </Form.Group>
       <Form.Group>
         <Form.Label>Title</Form.Label>
         <Form.Control
@@ -47,6 +58,8 @@ const ProductForm = ({ addProduct }) => {
         <Form.Control
           as="textarea"
           rows="3"
+          name="description"
+          value={description}
           onChange={e => onChange(e)}
           required
         />
@@ -69,6 +82,7 @@ const ProductForm = ({ addProduct }) => {
         <Form.Control
           as="select"
           name="category"
+          value={category}
           onChange={e => onChange(e)}
           required
         >
