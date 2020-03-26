@@ -44,6 +44,10 @@ body, html {
   border-radius: 10rem !important;
 }
 
+.verticalLine {
+  border-left: thin solid #c1c1c1;
+}
+
 /*Landing page ===============================================*/
 
 .landing-title {
@@ -78,7 +82,7 @@ body, html {
 
 /*Dashboard ==================================================*/
 
-.dashboard-background{
+.dashboard-background {
   background-color: #eeeeee !important;
   margin: 0 !important;
   padding: 0 !important;
@@ -148,21 +152,8 @@ body, html {
   transform: translate(-50%, -50%);
 }
 
-.user-card .card {
-  padding: 1rem 0;
-  border-radius: 1rem;
-  border-style: none;
-  background-image: linear-gradient(to top, #d5d4d0b0 0%, #d5d4d0b0 1%, #eeeeecab 31%, #efeeecab 75%, #e9e9e7a8 100%);
-  /* background-color: rgba(255, 255, 255, 0.8); */
-}
-
 .user-form {
   margin: 2rem 0;
-}
-
-.user-input {
-  border-radius: 10rem !important;
-  border-style: none;
 }
 
 /* Alerts==================================================== */

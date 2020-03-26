@@ -3,19 +3,15 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Navbar from "./components/layout/Navbar";
 import Main from "./components/Pages/Main";
-import Landing from "./components/layout/Landing";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import Alert from "./components/layout/Alert";
 import Profile from "./components/profile/Profile";
 import CreateProfile from "./components/profile/CreateProfile";
-import EditProfile from "./components/profile/EditProfile";
 import SellerProfiles from "./components/profiles/SellerProfiles";
 import SellerProfileView from "./components/profiles/SellerProfileView";
 import BuyerProfiles from "./components/profiles/BuyerProfiles";
 import BuyerProfileView from "./components/profiles/BuyerProfileView";
-
-import ProductForm from "./components/product/ProductForm";
 
 import Footer from "./components/layout/Footer";
 import PrivateRoute from "./components/routing/PrivateRoute";
@@ -56,15 +52,7 @@ const App = () => {
           <Route exact path="/buyer/profiles" component={BuyerProfiles} />
           <Route exact path="/buyer/profile/:id" component={BuyerProfileView} />
 
-          <PrivateRoute exact path="/profile" component={Profile} />
-          <PrivateRoute
-            exact
-            path="/create-profile"
-            component={CreateProfile}
-          />
-          <PrivateRoute exact path="/edit-profile" component={EditProfile} />
-
-          <Route exact path="/addproduct" component={ProductForm} />
+          <PrivateRoute exact path="/create-profile" component={CreateProfile} />
         </Switch>
 
         <Footer />

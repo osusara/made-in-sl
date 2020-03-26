@@ -30,7 +30,7 @@ const Profile = ({
               </Card.Body>
             </Card>
             <Link to="/" className="btn btn-light my-3">
-              Go Back to Buyers List
+              Go Back
             </Link>
           </Container>
         </Fragment>

@@ -30,58 +30,36 @@ const Login = ({ login, isAuthenticated }) => {
     <Fragment>
       <Container
         style={{ height: "84vh" }}
-        className="login-background user-background"
+        className="user-background"
         fluid={true}
       >
         <Row style={{ height: "100%" }} className="user-page">
-          <Col lg={6} md={12} sm={12}>
-            <h1 className="hero-title">
-              Welcome to
-              <br />
-              Made in Sri Lanka
-              <p className="hero-text">
-                Buy the finest products made in Sri Lanka for low price and in
-                best quality. Only on Made in Sri Lanka, the world's online
-                marketplace.
-              </p>
-            </h1>
-          </Col>
-          <Col
-            lg={6}
-            md={12}
-            sm={12}
-            className="login-foreground user-foreground"
-          >
+          <Col lg={6} md={12} sm={12} className="mx-auto">
             <Col md={8} sm={10} className="user-card">
               <Card className="my-5">
                 <Card.Body>
                   <Card.Title className="text-center my-2">
-                    <h1>Login as an Admin</h1>
+                    <h1>Admin Login</h1>
+                    <br />
                   </Card.Title>
                   <Card.Text>
-                    <Form
-                      onSubmit={e => onSubmit(e)}
-                      className="text-center user-form"
-                    >
+                    <Form onSubmit={e => onSubmit(e)} >
                       <Form.Group controlId="formBasicEmail" className="mx-4">
                         <Form.Control
                           className="text-center user-input"
                           type="email"
-                          placeholder="Email"
+                          placeholder="Enter you email"
                           name="email"
                           value={email}
                           onChange={e => onChange(e)}
                           required
                         />
                       </Form.Group>
-                      <Form.Group
-                        controlId="formBasicPassword"
-                        className="mx-4"
-                      >
+                      <Form.Group controlId="formBasicPassword" className="mx-4">
                         <Form.Control
                           className="text-center user-input"
                           type="password"
-                          placeholder="Password"
+                          placeholder="Enter your password"
                           name="password"
                           value={password}
                           onChange={e => onChange(e)}
@@ -89,27 +67,13 @@ const Login = ({ login, isAuthenticated }) => {
                           required
                         />
                       </Form.Group>
-                      <Button type="submit" className="px-5 btn-custom-1">
-                        Login
-                      </Button>
+                      <div className="text-center">
+                        <Button type="submit" className="px-3">Login</Button>
+                      </div>
                     </Form>
                   </Card.Text>
                 </Card.Body>
               </Card>
-              <Row className="text-center mx-auto">
-                <Col>
-                  <span className="text-light text-center mx-auto float-center">
-                    If you are an User go to
-                    <Link
-                      to="/Buyer/login"
-                      className="btn-custom-2 text-light"
-                    >
-                      {" "}
-                      User Mode
-                    </Link>
-                  </span>
-                </Col>
-              </Row>
             </Col>
           </Col>
         </Row>

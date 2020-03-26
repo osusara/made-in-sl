@@ -37,8 +37,8 @@ const Profile = ({
                 <ProfileTop profile={profile} />
               </Card.Body>
             </Card>
-            <Link to="/profiles" className="btn btn-light my-3">
-              Go Back to Sellers List
+            <Link to="/" className="btn btn-light my-3">
+              Go Back
             </Link>
           </Container>
         </Fragment>

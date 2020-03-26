@@ -112,7 +112,7 @@ export const createProfile = (
     dispatch(setAlert(edit ? "Profile updated" : "Profile created", "success"));
 
     if (!edit) {
-      history.push("/profile");
+      history.push("/");
     }
   } catch (error) {
     const errors = error.response.data.errors;

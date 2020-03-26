@@ -8,6 +8,7 @@ import Spinner from "../layout/Spinner";
 import Dashboard from "./Dashboard";
 import Products from "./Products";
 import Users from "./Users";
+import UserProfile from "./UserProfile";
 import BuyerProfiles from "../profiles/BuyerProfiles";
 
 const Main = ({ auth: {isAuthenticated, isAdmin, loading}}) => {
@@ -31,6 +32,9 @@ const Main = ({ auth: {isAuthenticated, isAdmin, loading}}) => {
             <Nav.Item className="my-1">
               <Nav.Link eventKey="users" className="sidebar-text">Users</Nav.Link>
             </Nav.Item>
+            <Nav.Item className="my-1">
+              <Nav.Link eventKey="profile" className="sidebar-text">Profile</Nav.Link>
+            </Nav.Item>
           </Nav>
         </Col>
         <Col sm={10} className="dashboard-background py-4 px-2">
@@ -45,6 +49,9 @@ const Main = ({ auth: {isAuthenticated, isAdmin, loading}}) => {
             </Tab.Pane>
             <Tab.Pane eventKey="users">
               <Users />
+            </Tab.Pane>
+            <Tab.Pane eventKey="profile">
+              <UserProfile />
             </Tab.Pane>
           </Tab.Content>
         }
