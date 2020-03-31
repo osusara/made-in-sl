@@ -1,6 +1,6 @@
 import axios from "axios";
 import { setAlert } from "./alert";
-import { GET_CART, ADD_TO_CART, REMOVE_FROM_CART, CART_ERROR } from "./types";
+import { GET_CART, ADD_TO_CART, REMOVE_FROM_CART, DELETE_CART, CART_ERROR } from "./types";
 
 // get cart
 export const getCart = () => async dispatch => {
@@ -57,6 +57,21 @@ export const removeFromCart = (productId) => async dispatch => {
     })
 
     dispatch(setAlert("Item removed", "warning"));
+  } catch (error) {
+    dispatch({
+      type: CART_ERROR,
+      payload: { msg: error.response.statusText, status: error.response.status }
+    });
+  }
+}
+
+// delete cart
+export const deleteCart = () => async dispatch => {
+  try {
+    await axios.delete(`/api/buyer/cart`);
+
+    dispatch({type: DELETE_CART});
+
   } catch (error) {
     dispatch({
       type: CART_ERROR,

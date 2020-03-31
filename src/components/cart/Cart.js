@@ -29,7 +29,7 @@ const Cart = ({ getCart, cart: { items, loading } }) => {
         {items === null ? (<CartEmpty />) : (
           items.products.length === 0 ? (<CartEmpty />) : (
             <Container>
-              <CheckoutSection products={items.products} getPrice={getPrice} />
+              <CheckoutSection customerOrder={items} getPrice={getPrice} />
 
               <Card style={{borderRadius: "1rem"}} className="shadow mb-5 mt-4">
                 <Card.Body>
