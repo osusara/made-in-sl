@@ -1,9 +1,21 @@
 const mongoose = require("mongoose");
 
-const CartSchema = new mongoose.Schema({
+const OrderSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "user"
+  },
+  date: {
+    type: Date,
+    default: Date.now()
+  },
+  total: {
+    type: Number,
+    required: true
+  },
+  delivered: {
+    type: Boolean,
+    default: false
   },
   products: [
     {
@@ -30,13 +42,9 @@ const CartSchema = new mongoose.Schema({
       qty: {
         type: Number,
         default: 1
-      },
-      date: {
-        type: Date,
-        default: Date.now()
       }
     }
   ]
 });
 
-module.exports = Cart = mongoose.model("cart", CartSchema);
+module.exports = Order = mongoose.model("order", OrderSchema);

@@ -32,7 +32,6 @@ router.post("/:productId", auth, async (req, res) => {
     description: req.body.description
   };
   if (req.body.qty) item.qty = req.body.qty;
-  if (req.body.isPerchased) item.isPerchased = req.body.isPerchased;
 
   try {
     let cart = await Cart.findOne({ user: req.user.id });
@@ -94,6 +93,22 @@ router.delete("/:productId", auth, async (req, res) => {
     await cart.save();
 
     res.json(cart);
+
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("Server error");
+  }
+});
+
+// @route   DELETE api/buyer/cart/
+// @desc    delete cart
+// @access  Private
+router.delete("/", auth, async (req, res) => {
+  try {
+    // remove cart
+    await Cart.findOneAndRemove({ user: req.user.id });
+
+    res.json({msg: 'Cart is empty now'});
 
   } catch (error) {
     console.error(error.message);

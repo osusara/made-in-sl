@@ -15,6 +15,7 @@ app.use("/api/buyer/auth", require("./routes/api/buyer/auth"));
 app.use("/api/buyer/users", require("./routes/api/buyer/users"));
 app.use("/api/buyer/profile", require("./routes/api/buyer/profile"));
 app.use("/api/buyer/cart", require("./routes/api/buyer/cart"));
+app.use("/api/buyer/order", require("./routes/api/buyer/order"));
 
 app.use("/api/seller/auth", require("./routes/api/seller/auth"));
 app.use("/api/seller/users", require("./routes/api/seller/users"));
