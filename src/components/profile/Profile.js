@@ -8,6 +8,7 @@ import { getCurrentProfile, deleteAccount } from "../../actions/profile";
 import Spinner from "../layout/Spinner";
 import ProfileActions from "./ProfileActions";
 import Address from "./Address";
+import Orders from "../order/Orders";
 
 const Profile = ({
   getCurrentProfile,
@@ -22,7 +23,7 @@ const Profile = ({
   return loading && profile === null && user === null ? (
     <Spinner />
   ) : (
-    <Container fluid={true} className="register-background py-4">
+    <Container fluid={true} className="register-background user-foreground py-4">
       <Container
         style={{ backgroundColor: "#ffffff", borderRadius: "1rem" }}
         className="py-4 px-4"
@@ -85,6 +86,8 @@ const Profile = ({
             </Link>
           </Fragment>
         )}
+        <hr />
+        <Orders />
       </Container>
     </Container>
   );

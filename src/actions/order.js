@@ -3,7 +3,7 @@ import { setAlert } from "./alert";
 import { GET_ORDER, ADD_ORDER, ORDER_ERROR } from "./types";
 
 // get order
-export const getCart = () => async dispatch => {
+export const getOrder = () => async dispatch => {
   try {
     const res = await axios.get("/api/buyer/order");
 

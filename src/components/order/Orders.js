@@ -5,6 +5,9 @@ import PropTypes from "prop-types";
 import { getOrder } from "../../actions/order";
 import Spinner from "../layout/Spinner";
 
+import OrderEmpty from "./OrderEmpty";
+import OrderItem from "./OrderItem";
+
 const Order = ({ getOrder, order: { order, loading } }) => {
   useEffect(() => {
     getOrder();
@@ -13,20 +16,21 @@ const Order = ({ getOrder, order: { order, loading } }) => {
   return loading ? (
     <Spinner />
   ) : (
-    <Container
-      fluid={true}
-      className="register-background user-foreground py-4"
-    >
+    <Container fluid={true}>
+      <h4 className="text-center">Your Recent Orders</h4>
       <Container>
-        <Card style={{ borderRadius: "1rem" }} className="shadow mb-5 mt-4">
-          <Card.Body>
-            <ListGroup>
-              
-            </ListGroup>
-          </Card.Body>
-        </Card>
+        {order === null ? (
+          <OrderEmpty />
+        ) : order.length === 0 ? (
+          <OrderEmpty />
+        ) : (
+          <Container>
+            {order.map(item => (
+              <OrderItem key={item._id} item={item} />
+            ))}
+          </Container>
+        )}
       </Container>
-      )}
     </Container>
   );
 };
