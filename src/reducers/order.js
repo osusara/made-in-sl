@@ -1,6 +1,7 @@
 import {
   GET_ORDER,
   ADD_ORDER,
+  DELIVERED_ORDER,
   ORDER_ERROR
 } from "../actions/types";
 
@@ -15,6 +16,7 @@ export default function(state = initialState, action) {
 
   switch (type) {
     case GET_ORDER:
+    case DELIVERED_ORDER:
       return {
         ...state,
         order: payload,

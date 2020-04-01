@@ -45,23 +45,6 @@ const ProductsTabs = ( {product: { loading }} ) => {
           </Tab>
         </Tabs>
       </Container>
-
-      {/* <Container className="mx-auto">
-        <Card className="mx-auto">
-          <Card.Body>
-            <Form inline className="form-group my-1 mx-3 mx-auto">
-              <Form.Control
-                type="text"
-                placeholder="Product Name"
-                className="mr-sm-2 text-center search-input mx-auto"
-              />
-              <Button className="my-1 px-3 search-btn btn-outline-dark mx-auto">
-                Search
-              </Button>
-            </Form>
-          </Card.Body>
-        </Card>
-      </Container> */}
     </div>
   );
 };

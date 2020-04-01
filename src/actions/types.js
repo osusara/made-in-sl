@@ -33,5 +33,6 @@ export const CART_ERROR = "CART_ERROR";
 
 export const GET_ORDER = "GET_ORDER";
 export const ADD_ORDER = "ADD_ORDER";
+export const DELIVERED_ORDER = "DELIVERED_ORDER";
 export const ORDER_ERROR = "ORDER_ERROR";
 

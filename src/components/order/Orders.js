@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Container, Card, ListGroup } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { getOrder } from "../../actions/order";
@@ -19,17 +19,13 @@ const Order = ({ getOrder, order: { order, loading } }) => {
     <Container fluid={true}>
       <h4 className="text-center">Your Recent Orders</h4>
       <Container>
-        {order === null ? (
-          <OrderEmpty />
-        ) : order.length === 0 ? (
-          <OrderEmpty />
-        ) : (
+        {order === null ? (<OrderEmpty />) : (
+        order.constructor !== Array ? (<OrderEmpty />) : (
+        order.length === 0 ? (<OrderEmpty />) : (
           <Container>
-            {order.map(item => (
-              <OrderItem key={item._id} item={item} />
-            ))}
+            {order.map(item => (<OrderItem key={item._id} item={item} />))}
           </Container>
-        )}
+        )))}
       </Container>
     </Container>
   );

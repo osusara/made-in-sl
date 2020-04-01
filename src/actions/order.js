@@ -1,6 +1,6 @@
 import axios from "axios";
 import { setAlert } from "./alert";
-import { GET_ORDER, ADD_ORDER, ORDER_ERROR } from "./types";
+import { GET_ORDER, ADD_ORDER, DELIVERED_ORDER, ORDER_ERROR } from "./types";
 
 // get order
 export const getOrder = () => async dispatch => {
@@ -19,7 +19,7 @@ export const getOrder = () => async dispatch => {
   }
 };
 
-// add  order
+// add order
 export const addOrder = (formData) => async dispatch => {
   try {
     const config = {
@@ -41,6 +41,27 @@ export const addOrder = (formData) => async dispatch => {
     });
   }
 };
+
+//mark an order as delivered
+export const deliveredOrder = (orderId) => async dispatch => {
+  try {
+    const config = {
+      headers: { "Content-Type": "application/json" }
+    };
+
+    const res = await axios.post(`/api/buyer/order/delivered`, { orderId }, config);
+
+    dispatch({
+      type: DELIVERED_ORDER,
+      payload: res.data
+    });
+  } catch (error) {
+    dispatch({
+      type: ORDER_ERROR,
+      payload: { msg: error.response.statusText, status: error.response.status }
+    });
+  }
+}
 
 // delete from order
 // export const removeFromCart = productId => async dispatch => {
