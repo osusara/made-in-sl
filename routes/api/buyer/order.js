@@ -10,7 +10,7 @@ const Order = require("../../../models/buyer/Order");
 router.get('/', auth, async (req, res) => {
   try {
     // get the orders in time order
-    const orders = await Order.find({ user: req.user.id }).sort({ date: -1 });
+    const orders = await Order.find({ user: req.user.id }).sort({ date: -1 }).limit(10);
     res.json(orders);
 
   } catch (error) {
@@ -47,6 +47,21 @@ router.post("/", auth, async (req, res) => {
 
     await order.save();
     res.json(order);
+
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("Server error");
+  }
+});
+
+// @route   PUT api/buyer/order/delivered
+// @desc    mark order as delivered
+// @access  Private
+router.post("/delivered", auth, async (req, res) => { 
+  try {
+    const order = await Order.findOneAndUpdate({ _id: req.body.orderId }, { $set: {delivered: true} }, { new: true });
+    const orders = await Order.find({ user: req.user.id }).sort({ date: -1 }).limit(10);
+    res.json(orders);
 
   } catch (error) {
     console.error(error.message);
