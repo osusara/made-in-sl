@@ -37,7 +37,7 @@ router.post("/", [auth, [
     return res.status(400).json({ errors: errors.array() });
   }
 
-  const { firstname, lastname, gender, phone } = req.body;
+  const { firstname, lastname, country, gender, phone } = req.body;
 
   // build profile object
   const profileFields = {};
@@ -45,6 +45,7 @@ router.post("/", [auth, [
   if (firstname) profileFields.firstname = firstname;
   if (lastname) profileFields.lastname = lastname;
   if (gender) profileFields.gender = gender;
+  if (country) profileFields.country = country;
   if (phone) profileFields.phone = phone;
 
   try {
