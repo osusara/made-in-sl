@@ -1,8 +1,7 @@
+const path = require("path");
 const express = require("express");
 const app = express();
 const connectDB = require("./config/db");
-
-app.get("/", (req, res) => res.send("API is Running"));
 
 // middelware
 app.use(express.json({ extended: false }));
@@ -22,6 +21,10 @@ app.use("/api/seller/users", require("./routes/api/seller/users"));
 app.use("/api/seller/profile", require("./routes/api/seller/profile"));
 
 app.use("/api/products", require("./routes/api/product/products"));
+
+// production build
+app.use(express.static("client/build"));
+app.get("*", (req, res) => res.sendFile(path.resolve(__dirname, "client", "build", "index.html")));
 
 // start the server
 const PORT = process.env.PORT || 5000;
