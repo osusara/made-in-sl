@@ -1,11 +1,11 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # views
-client/
-admin/
+/client
+/admin
 
 # config
-config/default.json
+/config
 
 # dependencies
 /node_modules
