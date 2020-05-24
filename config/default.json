@@ -1,5 +1,0 @@
-{
-    "mongoURI": "mongodb+srv://osusara:1234@made-in-sl-lcg5i.mongodb.net/test?retryWrites=true&w=majority",
-    "jwtPrivateKey": "mysecrettoken",
-    "jwtAdminKey": "adminsecretkey"
-}
