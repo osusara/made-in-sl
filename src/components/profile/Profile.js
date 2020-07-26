@@ -8,15 +8,10 @@ import Spinner from "../layout/Spinner";
 import CreateProfile from "./CreateProfile";
 
 const Profile = ({
-  getCurrentProfile,
   deleteAccount,
   auth: { user },
   profile: { profile, loading }
 }) => {
-  useEffect(() => {
-    getCurrentProfile();
-  }, [getCurrentProfile]);
-
   return loading && profile === null && user === null ? (
     <Spinner />
   ) : (
@@ -68,7 +63,6 @@ const Profile = ({
 };
 
 Profile.propTypes = {
-  getCurrentProfile: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   profile: PropTypes.object.isRequired,
   deleteAccount: PropTypes.func.isRequired
@@ -79,6 +73,6 @@ const mapStateToProps = state => ({
   profile: state.profile
 });
 
-export default connect(mapStateToProps, { getCurrentProfile, deleteAccount })(
+export default connect(mapStateToProps, { deleteAccount })(
   Profile
 );

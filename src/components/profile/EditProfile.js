@@ -8,7 +8,6 @@ import { createProfile, getCurrentProfile } from "../../actions/profile";
 const EditProfile = ({
   profile: { profile, loading },
   createProfile,
-  getCurrentProfile,
   history
 }) => {
   const [formData, setFormData] = useState({
@@ -19,7 +18,6 @@ const EditProfile = ({
   });
 
   useEffect(() => {
-    getCurrentProfile();
 
     setFormData({
       company: loading || !profile.company ? "" : profile.company,
@@ -27,7 +25,7 @@ const EditProfile = ({
       phone: loading || !profile.phone ? "" : profile.phone,
       email: loading || !profile.email ? "" : profile.email
     });
-  }, [loading, getCurrentProfile]);
+  }, [loading]);
 
   const { company, location, phone, email } = formData;
 
@@ -104,7 +102,6 @@ const EditProfile = ({
 EditProfile.propTypes = {
   createProfile: PropTypes.func.isRequired,
   profile: PropTypes.object.isRequired,
-  getCurrentProfile: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -112,6 +109,6 @@ const mapStateToProps = state => ({
 });
 
 // with router is for the "history"
-export default connect(mapStateToProps, { createProfile, getCurrentProfile })(
+export default connect(mapStateToProps, { createProfile })(
   withRouter(EditProfile)
 );

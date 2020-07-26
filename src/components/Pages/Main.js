@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { ListGroup, Nav, Tab, Row, Col } from "react-bootstrap";
 import { Route, Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
@@ -11,7 +11,7 @@ import Users from "./Users";
 import UserProfile from "./UserProfile";
 import BuyerProfiles from "../profiles/BuyerProfiles";
 
-const Main = ({ auth: {isAuthenticated, isAdmin, loading}}) => {
+const Main = ({auth: {isAuthenticated, isAdmin, loading}}) => {
 
   // redirect if not logged in in
   if(!(isAuthenticated && isAdmin)) {
@@ -69,4 +69,4 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps, {})(Main);
+export default connect(mapStateToProps, {  })(Main);

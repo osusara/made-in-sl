@@ -6,10 +6,7 @@ import Spinner from "../layout/Spinner";
 import { getBuyerProfiles } from "../../actions/profile";
 import ProfileItem from "./BuyerProfileItem";
 
-const Profiles = ({ getBuyerProfiles, profile: { buyerprofiles, loading } }) => {
-  useEffect(() => {
-    getBuyerProfiles();
-  }, [getBuyerProfiles]);
+const Profiles = ({ profile: { buyerprofiles, loading } }) => {
 
   return (
     <Fragment>
@@ -37,7 +34,6 @@ const Profiles = ({ getBuyerProfiles, profile: { buyerprofiles, loading } }) => 
 };
 
 Profiles.propTypes = {
-  getBuyerProfiles: PropTypes.func.isRequired,
   profile: PropTypes.object.isRequired
 };
 
@@ -45,4 +41,4 @@ const mapStateToProps = state => ({
   profile: state.profile
 });
 
-export default connect(mapStateToProps, { getBuyerProfiles })(Profiles);
+export default connect(mapStateToProps, {})(Profiles);
