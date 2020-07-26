@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const auth = require("../../../middleware/auth");
+const _auth = require("../../../middleware/_auth");
 const { check, validationResult } = require("express-validator");
 
 const Profile = require("../../../models/seller/Profile");
@@ -9,7 +9,7 @@ const User = require("../../../models/seller/User");
 // @route   GET api/seller/profile/me
 // @desc    Get current users profile
 // @access  Private
-router.get("/me", auth, async (req, res) => {
+router.get("/me", _auth, async (req, res) => {
   try {
     const profile = await Profile.findOne({ user: req.user.id }).populate("seller", ["username", "avatar"]);
 
@@ -28,7 +28,7 @@ router.get("/me", auth, async (req, res) => {
 // @route   POST api/seller/profile
 // @desc    Create or update user profile
 // @access  Private
-router.post("/", [auth, [
+router.post("/", [_auth, [
   check('company', 'Company name is required').not().isEmpty(),
   check('location', 'Company location is required').not().isEmpty(),
   check('phone', 'A Phone number is required').not().isEmpty(),
@@ -106,7 +106,7 @@ router.get('/user/:user_id', async (req, res) => {
 // @route   DELETE api/seller/profile
 // @desc    delete profile by user_id
 // @access  Private
-router.delete('/', auth, async (req, res) => {
+router.delete('/', _auth, async (req, res) => {
   try {
     // remove profile
     await Profile.findOneAndRemove({ user: req.user.id });

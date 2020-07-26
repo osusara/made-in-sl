@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { check, validationResult } = require("express-validator");
 const auth = require("../../../middleware/auth");
+const _auth = require("../../../middleware/_auth");
 
 const Seller = require("../../../models/seller/User");
 const Buyer = require("../../../models/buyer/User");
@@ -10,7 +11,7 @@ const Product = require("../../../models/product/Product");
 // @route   POST api/products
 // @desc    add a product
 // @access  Private
-router.post("/",[auth, [
+router.post("/",[_auth, [
       check("title", "Title is required").not().isEmpty(),
       check("description", "Description is required").not().isEmpty(),
       check("price", "Price is required").not().isEmpty()
@@ -94,7 +95,7 @@ router.get('/:id', async (req, res) => {
 // @route   DELETE api/products/:id
 // @desc    delete a product
 // @access  Private - sellers only
-router.delete('/:id', auth, async (req, res) => {
+router.delete('/:id', _auth, async (req, res) => {
   try {
     // find the product
     const product = await Product.findById(req.params.id);
