@@ -1,0 +1,254 @@
+body, html {
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* page common==================================================*/
+
+.hero-title {
+  font-weight: 900;
+  font-size: 3rem;
+  color: #b63a46;
+  position: absolute;
+  width: 80%;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.hero-text {
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: #000000;
+  position: absolute;
+}
+
+.btn-custom-1 {
+  border-style: none !important;
+  border-radius: 10rem !important;
+  color: #ffffff !important;
+  transition: all 0.5s ease;
+  background-image: linear-gradient(45deg, #a73a5e 0%, #c43a30 100%);
+}
+
+.btn-custom-1:hover {
+  background-image: linear-gradient(45deg, #e4574d 0%, #bd5074 100%);
+}
+
+.btn-custom-2 {
+  border-radius: 10rem !important;
+}
+
+.verticalLine {
+  border-left: thin solid #c1c1c1;
+}
+
+/*Landing page ===============================================*/
+
+.landing-title {
+  font-weight: 900;
+  font-size: 3rem;
+  color: #b63a46;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.landing-text {
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: #000000;
+}
+
+.landing-hero {
+  position: absolute;
+  width: 80%;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+}
+
+.landing-background {
+  background-image: url("./assets/images/9-background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100%;
+}
+
+/*Dashboard ==================================================*/
+
+.dashboard-background {
+  background-color: #eeeeee !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/*Sidebar ====================================================*/
+
+.sidebar-container {
+  background-color: #444444;
+}
+
+.sidebar-text {
+  color: #ffffff !important;
+}
+
+/*Navbar =====================================================*/
+
+.navbar-container {
+  background-color: #333333 !important;
+  color: #ffffff !important;
+}
+
+.search-btn {
+  border-radius: 10rem !important;
+}
+
+.search-input {
+  border-radius: 10rem !important;
+  border-style: none;
+}
+
+/*Login & registration page===================================*/
+
+.register-foreground {
+  background-image: url("./assets/images/7.jpg");
+}
+
+.login-foreground {
+  background-image: url("./assets/images/4.jpg");
+}
+
+.user-foreground {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.register-background {
+  background-image: url("./assets/images/7-background.jpg");
+}
+
+.login-background {
+  background-image: url("./assets/images/4-background.jpg");
+}
+
+.user-background {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100%;
+}
+
+.user-card {
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+}
+
+.user-form {
+  margin: 2rem 0;
+}
+
+/* Alerts==================================================== */
+
+.alert {
+  text-align: center !important;
+  border-radius: 10rem !important;
+  border-style: none !important;
+}
+
+.alert-danger {
+  background-color: rgb(192, 60, 82) !important;
+  color: #ffffff !important;
+}
+
+/* Footer==================================================== */
+
+.footer {
+  background-color: #333333 !important;
+  color: #ffffff !important;
+}
+
+/* Tab responsive========================================================================*/
+
+@media only screen and (max-width: 800px) {
+  * {
+    box-sizing: border-box;
+  }
+  .user-background {
+    height: 100%;
+    padding: 0 0 0 0;
+  }
+  /*page common - Responsiveness================================*/
+  .hero-title {
+    font-weight: 900;
+    font-size: 2.5rem;
+    text-align: center;
+    position: absolute;
+    width: 70%;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+    padding: 10% 0 10% 0;
+    margin: 0 0 0 0;
+  }
+  .hero-text {
+    font-weight: 500;
+    font-size: 1rem;
+    text-align: center;
+  }
+  /*Navbar - Responsiveness====================================*/
+  .search-input {
+    width: 76% !important;
+    margin-right: 5px;
+  }
+  .search-btn {
+    width: 20% !important;
+  }
+}
+
+/* Mobile responsive====================================================================*/
+
+@media only screen and (max-width: 540px) {
+  * {
+    box-sizing: border-box;
+    font-size: 0.8rem;
+  }
+  .user-background {
+    height: 100%;
+    padding: 40% 0 20% 0;
+  }
+  /*page common - Responsiveness==============================*/
+  .hero-title {
+    font-weight: 900;
+    font-size: 1.8rem;
+    text-align: center;
+    position: absolute;
+    width: 80%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0 0 50% 0;
+    margin: 0 0 0 0;
+  }
+  .hero-text {
+    font-weight: 200;
+    font-size: 1rem;
+    text-align: center;
+  }
+  /*Navbar - Responsiveness==================================*/
+  .search-input {
+    width: 76% !important;
+    margin-right: 5px;
+  }
+  .search-btn {
+    width: 20% !important;
+  }
+}
