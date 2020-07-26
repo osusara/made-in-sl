@@ -62,7 +62,8 @@ const Profile = ({
                     <span>Contact: {profile.phone}</span> |{" "}
                     <span>Email: {user.email}</span>
                     <br />
-                    <span>Gender: {profile.gender}</span>
+                    <span>Gender: {profile.gender}</span> |{" "}
+                    <span>Country: {profile.country}</span>
                     <br />
                     <Address address={profile.address} />
                     <div className="my-2">

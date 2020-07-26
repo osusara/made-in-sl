@@ -59,10 +59,7 @@ const Login = ({ login, isAuthenticated }) => {
                     <h1>Sign In</h1>
                   </Card.Title>
                   <Card.Text>
-                    <Form
-                      onSubmit={e => onSubmit(e)}
-                      className="text-center user-form"
-                    >
+                    <Form onSubmit={e => onSubmit(e)} className="text-center user-form">
                       <Form.Group controlId="formBasicEmail" className="mx-4">
                         <Form.Control
                           className="text-center user-input"
@@ -74,10 +71,7 @@ const Login = ({ login, isAuthenticated }) => {
                           required
                         />
                       </Form.Group>
-                      <Form.Group
-                        controlId="formBasicPassword"
-                        className="mx-4"
-                      >
+                      <Form.Group controlId="formBasicPassword" className="mx-4">
                         <Form.Control
                           className="text-center user-input"
                           type="password"
