@@ -9,43 +9,25 @@ Made In Sri Lanka is an E-commerce website which sells local products in Sri Lan
   git clone https://github.com/USERNAME/made-in-sl
   cd made-in-sl
   ```
-- Install backend dependencies.
+- Install dependencies.
 
   ```
-  npm install
+  npm run setup
   ```
 
-- Then fork and clone client view on [https://github.com/osusara/made-in-sl-client](https://github.com/osusara/made-in-sl-client).
+## Configurations
+
+- Create a file "default.json" in /config directory
+
+- Add these to the file
 
   ```
-  git clone https://github.com/USERNAME/made-in-sl-client
-  cd made-in-sl-client
+  {
+    "mongoURI": "MONGODB_URI",
+    "jwtPrivateKey": "A_SECRET_FOR_CLIENT_AUTH",
+    "jwtAdminKey": "A_SECRET_FOR_ADMIN_AUTH"
+  }
   ```
-  
-- Install backend dependencies and go back to main directory.
-
-  ```
-  npm install
-  cd ../
-  ```
-  
-- Then fork and clone admin view on [https://github.com/osusara/made-in-sl-admin](https://github.com/osusara/made-in-sl-admin).
-
-  ```
-  git clone https://github.com/USERNAME/made-in-sl-admin
-  cd made-in-sl-admin
-  ```
-  
-- Install backend dependencies and go back to main directory.
-
-  ```
-  npm install
-  cd ../
-  ```
-  
-- Rename <b>made-in-sl-client</b> directory name to <b>client</b> and, rename <b>made-in-sl-admin</b> directory name to <b>admin</b> in the main directory
-
-<hr>
 
 ## Run in dev mode
 

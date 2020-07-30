@@ -6,10 +6,11 @@
   "scripts": {
     "start": "node server",
     "server": "nodemon server",
+    "setup": "cd client && npm install && cd ../admin && npm install && cd .. && npm install",
     "client": "npm start --prefix client",
     "admin": "npm start --prefix admin",
-    "dev-client": "concurrently \"npm run server\" \"npm run client\"",
-    "dev-admin": "concurrently \"npm run server\" \"npm run admin\"",
+    "dev:client": "concurrently \"npm run server\" \"npm run client\"",
+    "dev:admin": "concurrently \"npm run server\" \"npm run admin\"",
     "dev": "concurrently \"npm run server\" \"npm run client\" \"npm run admin\""
   },
   "repository": {
